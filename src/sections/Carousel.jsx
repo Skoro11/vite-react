@@ -1,4 +1,4 @@
-import { /* useState, useEffect, */ useRef } from "react";
+import { useRef } from "react";
 import Slider from "react-slick";
 import { products } from "../components/Products"; // Import products from Products.jsx
 import "slick-carousel/slick/slick.css";
@@ -7,29 +7,16 @@ import "../styles/Carousel.css"; // Custom CSS for styling
 import Clock from "../components/Clock"; // Import Clock component
 import RenderStars from "../components/RenderStars";
 import GetTag from "../components/Tags";
-import { useCart } from "../context/Context";
+import { useCart } from "../context/ContextCart";
+import { useLike } from "../context/ContextLike";
+import { useWatchlist } from "../context/ContextWatchlist"; // Import the watchlist context
 
 function Carousel() {
   const sliderRef = useRef(null);
   const { days, hours, minutes, seconds } = Clock();
-  /*   const [scrollSensitivity, setScrollSensitivity] = useState(1);  */ // Sensitivity for mobile scrolls
   const { addToCart } = useCart();
-
-  // Detecting swipe or scroll sensitivity
-  /*   const handleWheel = (e) => {
-    if (e.deltaY > 0) {
-      setScrollSensitivity(2); // Increase scroll sensitivity for next slides
-    } else {
-      setScrollSensitivity(1); // Return to normal sensitivity
-    }
-  };
- */
-  /* useEffect(() => {
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    return () => {
-      window.removeEventListener("wheel", handleWheel); // Cleanup event listener
-    };
-  }, []); */
+  const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
+  const { addToWatchlist, watchlist } = useWatchlist(); // Get `watchlist` from the context to check if item is already in the watchlist
 
   const settings = {
     dots: false,
@@ -70,6 +57,16 @@ function Carousel() {
     if (sliderRef.current) {
       sliderRef.current.slickNext();
     }
+  };
+
+  // Function to check if a product is already liked
+  const isLiked = (productId) => {
+    return likeList.some((item) => item.id === productId);
+  };
+
+  // Function to check if a product is in the watchlist
+  const isInWatchlist = (productId) => {
+    return watchlist.some((item) => item.id === productId);
   };
 
   return (
@@ -139,14 +136,38 @@ function Carousel() {
                 <button
                   className="addTo-cart"
                   onClick={() => {
-                    // Call your custom handler first
-                    addToCart(product); // Then call addToCart function
+                    addToCart(product); // Add the product to the cart
                   }}
                 >
                   Add To Cart
                 </button>
 
                 <div className="product-tag">{GetTag(product.tag)}</div>
+                {/* Image based Like button */}
+                <img
+                  src={
+                    isLiked(product.id) ? "heart-fill.png" : "heart-empty.png"
+                  } // Replace with your icon paths
+                  className="like-icon"
+                  onClick={() => {
+                    addToLike(product); // This will add or remove from the like list
+                  }}
+                  style={{ cursor: "pointer" }} // Add pointer cursor to indicate it's clickable
+                />
+
+                {/* Watchlist button */}
+                <img
+                  src={
+                    isInWatchlist(product.id)
+                      ? "eye-fill.png" // Icon for "Remove from Watchlist"
+                      : "eye-empty.png" // Icon for "Add to Watchlist"
+                  }
+                  className="watchlist-icon"
+                  onClick={() => {
+                    addToWatchlist(product); // This will add or remove from the watchlist
+                  }}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
 
               <div className="product-info">

@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import { VscChevronUp, VscChevronDown, VscClose } from "react-icons/vsc";
 
 // Create Context
 const CartContext = createContext();
@@ -28,9 +29,11 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
+      // Only update the cart if the product is already there
       existingProduct.quantity += 1;
-      setCart([...cart]); // Trigger a state update
+      setCart([...cart]); // Update cart state
     } else {
+      // Add a new product with quantity set to 1
       product.quantity = 1;
       setCart([...cart, product]);
     }
@@ -82,42 +85,55 @@ export const CartProvider = ({ children }) => {
     }
 
     return (
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <table className="cart-table">
         <thead>
-          <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Subtotal</th>
-            <th>Actions</th>
+          <tr className="cart-product-row">
+            <th className="table-data first-element">Product</th>
+            <th className="table-data">Price</th>
+            <th className="table-data">Quantity</th>
+
+            <th className="table-data">Subtotal</th>
+            <th className="table-data last-element">Actions</th>
           </tr>
         </thead>
         <tbody>
           {cart.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>
-                <button onClick={() => updateQuantity(item.id, "add")}>
-                  +
-                </button>
-                <span style={{ margin: "0 10px" }}>{item.quantity}</span>
-                <button
-                  onClick={() => updateQuantity(item.id, "subtract")}
-                  disabled={item.quantity === 1}
-                >
-                  -
-                </button>
+            <tr className="cart-product-row" key={item.id}>
+              <td className="table-data first-element photo-item">
+                <VscClose
+                  className="x-icon"
+                  onClick={() => removeFromCart(item.id)}
+                />
+
+                <img className="cart-row-image" src={item.image}></img>
+                {item.name}
               </td>
-              <td>{item.price}</td>
-              <td>
+              <td className="table-data">{item.price}</td>
+              <td className="table-data">
+                <div className="operation-box">
+                  <span style={{ margin: "0 10px" }}>{item.quantity}</span>
+                  <span className="operations-quantity">
+                    <VscChevronUp
+                      className="operation-btn"
+                      onClick={() => updateQuantity(item.id, "add")}
+                    />
+
+                    <VscChevronDown
+                      className="operation-btn"
+                      onClick={() => updateQuantity(item.id, "subtract")}
+                      disabled={item.quantity === 1}
+                    />
+                  </span>
+                </div>
+              </td>
+
+              <td className="table-data">
                 $
                 {(
                   parseFloat(item.price.replace("$", "")) * item.quantity
                 ).toFixed(2)}
               </td>
-              <td>
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
-              </td>
+              <td className="table-data last-element"></td>
             </tr>
           ))}
         </tbody>

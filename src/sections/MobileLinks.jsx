@@ -1,4 +1,4 @@
-import { useCart } from "../context/Context";
+import { useCart } from "../context/ContextCart";
 
 const MobileLinks = () => {
   const { getCartItemsCount } = useCart();

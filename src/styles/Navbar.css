@@ -104,7 +104,11 @@ body {
 .navbar__cart:hover {
   color: #ff9900;
 }
-.navbar__cart {
+.eye-watch {
+  color: white;
+}
+.navbar__cart,
+.navbar__heart {
   position: relative;
 }
 .popup-item-number {
@@ -120,6 +124,11 @@ body {
   top: -6px;
   right: -6px;
   font-size: 15px;
+}
+.heart-popup {
+  background-color: blue;
+  top: -46%;
+  right: -66%;
 }
 .navbar__dropdown {
   backdrop-filter: blur(30px);

@@ -1,4 +1,4 @@
-import { useCart } from "../context/Context"; // Adjust the import path accordingly
+import { useCart } from "../context/ContextCart"; // Adjust the import path accordingly
 import "./CartPage.css";
 const CartPage = () => {
   const { showCartItems, calculateTotal, clearCart } = useCart();

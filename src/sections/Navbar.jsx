@@ -1,6 +1,8 @@
 import "../styles/Navbar.css";
 import { useState } from "react";
-import { useCart } from "../context/Context";
+import { useCart } from "../context/ContextCart";
+import { useLike } from "../context/ContextLike";
+import { VscEye } from "react-icons/vsc";
 // Importing React Icons
 import {
   FaCog,
@@ -15,6 +17,7 @@ function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const { getCartItemsCount } = useCart();
+  const { getLikeItemsCount } = useLike();
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -68,15 +71,21 @@ function Navbar() {
               {/* Search icon */}
             </button>
           </div>
+          <a href="/like">
+            <div className="navbar__heart">
+              <img
+                src="heart-icon.png"
+                alt="Heart Icon"
+                className="navbar__icon"
+              />
+              {getLikeItemsCount() !== 0 && (
+                <span className="popup-item-number heart-popup desktop-item">
+                  <span>{getLikeItemsCount()}</span>
+                </span>
+              )}
+            </div>
+          </a>
 
-          <div className="navbar__heart">
-            <img
-              src="heart-icon.png"
-              alt="Heart Icon"
-              className="navbar__icon"
-            />{" "}
-            {/* Heart Icon */}
-          </div>
           <a href="/cart">
             <div className="navbar__cart">
               <img
@@ -102,6 +111,13 @@ function Navbar() {
         {isDropdownOpen && (
           <div className="navbar__dropdown">
             <ul>
+              <li>
+                <a className="eye-watch" href="/watchlist">
+                  {" "}
+                  <VscEye />
+                  Watchlist
+                </a>
+              </li>
               <li>
                 <FaCog /> Manage my account
               </li>

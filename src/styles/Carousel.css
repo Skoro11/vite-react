@@ -169,6 +169,24 @@
 .new-tag {
   background-color: #00ff66;
 }
+.like-icon {
+  position: absolute;
+  top: 8%;
+  width: fit-content !important;
+  right: 16%;
+}
+.watchlist-icon {
+  position: absolute;
+  top: 23%;
+  width: fit-content !important;
+  right: 14%;
+  padding: 2%;
+  border-radius: 20px;
+}
+.watchlist-icon:hover,
+.like-icon:hover {
+  opacity: 0.5;
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .custom-arrows {
     display: none;
