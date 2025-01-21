@@ -44,10 +44,18 @@
 .photo-item {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .x-icon {
   padding: 5px;
   background-color: red;
   color: white;
   border-radius: 20px;
+  position: absolute;
+  top: 13%;
+  left: 9%;
+  cursor: pointer;
+}
+.x-icon:hover {
+  opacity: 0.5;
 }

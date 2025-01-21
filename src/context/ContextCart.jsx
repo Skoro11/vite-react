@@ -92,8 +92,7 @@ export const CartProvider = ({ children }) => {
             <th className="table-data">Price</th>
             <th className="table-data">Quantity</th>
 
-            <th className="table-data">Subtotal</th>
-            <th className="table-data last-element">Actions</th>
+            <th className="table-data last-element">Subtotal</th>
           </tr>
         </thead>
         <tbody>
