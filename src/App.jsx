@@ -11,6 +11,7 @@ import { LikeProvider } from "./context/ContextLike";
 import LikePage from "./pages/LikePage";
 import { WatchlistProvider } from "./context/ContextWatchlist";
 import WatchlistPage from "./pages/WatchlistPage";
+import Footer from "./sections/Footer";
 function App() {
   return (
     <Router>
@@ -49,7 +50,7 @@ function App() {
               <Route path="/watchlist" element={<></>} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
-            <MobileLinks />{" "}
+            <MobileLinks /> <Footer />
           </WatchlistProvider>
         </LikeProvider>
       </CartProvider>

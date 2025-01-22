@@ -1,0 +1,39 @@
+.flex {
+  display: flex;
+}
+.footer {
+  color: white;
+  background-color: black;
+}
+.footer-container {
+  margin-inline: auto;
+  max-width: 1170px;
+  justify-content: space-between;
+  padding: 3%;
+}
+.footer-heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer-list-item {
+  margin: 20px 0;
+}
+.column {
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 5px;
+}
+.center {
+  align-items: center;
+}
+.center li {
+  margin-top: 20px;
+  margin-inline: 15px;
+  cursor: pointer;
+}
+.bottom-margin {
+  margin-bottom: 20px;
+}
+.copyright {
+  margin-inline: auto;
+}
