@@ -187,6 +187,21 @@
 .like-icon:hover {
   opacity: 0.5;
 }
+.view-all {
+  margin-inline: auto;
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin-top: 3%;
+  color: white;
+  background-color: #db4444;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.view-all:hover {
+  opacity: 50%;
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .custom-arrows {
     display: none;

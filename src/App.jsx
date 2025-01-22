@@ -24,6 +24,7 @@ function App() {
                 path="/"
                 element={
                   <>
+                    {/* <HeroSection /> */}
                     <Carousel />
                   </>
                 }
@@ -33,6 +34,7 @@ function App() {
                 element={
                   <>
                     <LikePage />
+                    <WatchlistPage />
                   </>
                 }
               />
@@ -44,14 +46,7 @@ function App() {
                   </>
                 }
               />
-              <Route
-                path="/watchlist"
-                element={
-                  <>
-                    <WatchlistPage />
-                  </>
-                }
-              />
+              <Route path="/watchlist" element={<></>} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
             <MobileLinks />{" "}

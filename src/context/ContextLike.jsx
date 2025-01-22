@@ -36,48 +36,14 @@ export const LikeProvider = ({ children }) => {
     }
   };
 
-  // Clear the like list
-  const clearLike = () => {
-    setLikeList([]);
-  };
-
   // Get total items count in the like list
   const getLikeItemsCount = () => {
     return likeList.length; // Just count the items in the like list, no need to sum quantities
   };
 
-  // Function to show the items inside the like list (HTML/JSX representation)
-  const showLikeItems = () => {
-    if (likeList.length === 0) {
-      return <p>Your like list is empty.</p>;
-    }
-
-    return (
-      <table className="cart-table">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {likeList.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.price}</td>
-              <td>
-                <button onClick={() => addToLike(item)}>
-                  {likeList.find((likeItem) => likeItem.id === item.id)
-                    ? "Remove"
-                    : "Add to Like"}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    );
+  // Function to remove all items from the likeList
+  const clearAllLikes = () => {
+    setLikeList([]); // Clear the likeList state
   };
 
   return (
@@ -85,9 +51,8 @@ export const LikeProvider = ({ children }) => {
       value={{
         likeList,
         addToLike,
-        clearLike,
         getLikeItemsCount,
-        showLikeItems,
+        clearAllLikes, // Expose clearAllLikes function
       }}
     >
       {children}

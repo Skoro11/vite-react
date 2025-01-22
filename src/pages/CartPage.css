@@ -7,19 +7,23 @@
   max-width: 1170px;
   margin-inline: auto;
 }
-/* .cart-product-row {
-  background-color: rgb(172, 252, 24);
-} */
+.back-links {
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+
 .table-data {
   padding: 2%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #00000024;
+  border-bottom: 1px solid #00000024;
 }
 .first-element {
-  border-left: 1px solid black;
+  border-left: 1px solid #00000024;
+  border-radius: 11px 0 0 11px;
 }
 .last-element {
-  border-right: 1px solid black;
+  border-right: 1px solid #00000024;
+  border-radius: 0 11px 11px 0;
 }
 .operations-quantity {
   display: flex;
@@ -58,4 +62,90 @@
 }
 .x-icon:hover {
   opacity: 0.5;
+}
+.home-link {
+  color: grey;
+}
+.cart-link {
+  color: black;
+}
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+.cart-btn,
+.coupon-btn {
+  width: 218px;
+  height: 56px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #808080eb;
+  font-weight: bold;
+  transition: background-color 0.5s ease-in-out;
+}
+.cart-btn:hover {
+  background-color: #db4444;
+  color: white;
+  border: white;
+  cursor: pointer;
+}
+.coupon-input {
+  height: 56px;
+  width: 300px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.coupon-btn {
+  background-color: #db4444;
+  color: white;
+  margin-left: 4%;
+}
+.coupon-btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.flex {
+  display: flex;
+}
+.underline {
+  border-bottom: 1px solid grey;
+}
+.total-item {
+  justify-content: space-between;
+  padding: 3% 0;
+}
+.between {
+  justify-content: space-between;
+}
+.cart-total-container {
+  width: 33%;
+  border: 1px solid black;
+  padding: 3%;
+}
+.mt {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.checkout-btn {
+  margin-top: 5%;
+  display: block;
+  margin-inline: auto;
+  color: white;
+  background-color: #db4444;
+  padding: 4% 8%;
+  border-radius: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+.checkout-btn:hover {
+  opacity: 0.5;
+}
+.empty-cart {
+  padding-top: 2%;
+  font-size: 20px;
+}
+.text {
+  padding-left: 5%;
 }

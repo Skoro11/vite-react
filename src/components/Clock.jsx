@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function Clock() {
   // Set the target date (e.g., January 18, 2025 at 17:30)
-  const targetDate = new Date("January 21, 2025 17:30:00").getTime();
+  const targetDate = new Date("January 24, 2025 17:30:00").getTime();
 
   // State to hold the remaining time
   const [timeLeft, setTimeLeft] = useState({

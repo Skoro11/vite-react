@@ -8,6 +8,34 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  // Add moveAllToCart function
+  const moveAllToCart = (likeList, addToCart, addToLike) => {
+    let updatedCart = [...cart];
+
+    // Add all items from likeList to the cart and remove them from the likeList
+    likeList.forEach((product) => {
+      // Check if product is already in the cart
+      const existingProduct = updatedCart.find(
+        (item) => item.id === product.id
+      );
+
+      if (existingProduct) {
+        // If product already exists in cart, increase its quantity
+        existingProduct.quantity += 1;
+      } else {
+        // If it's a new product, add it with quantity 1
+        product.quantity = 1;
+        updatedCart.push(product);
+      }
+
+      // Remove the product from the like list
+      addToLike(product); // This will now be done for every product
+    });
+
+    // Update the cart state with the new items
+    setCart(updatedCart);
+  };
+
   // Load cart from localStorage when the component mounts
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart"));
@@ -81,62 +109,56 @@ export const CartProvider = ({ children }) => {
   // Function to show the items inside the cart (HTML/JSX representation)
   const showCartItems = () => {
     if (cart.length === 0) {
-      return <p>Your cart is empty.</p>;
+      return (
+        <tbody>
+          <tr className="cart-product-row">
+            <td className="empty-cart">Your cart is empty</td>
+          </tr>
+        </tbody>
+      );
     }
 
     return (
-      <table className="cart-table">
-        <thead>
-          <tr className="cart-product-row">
-            <th className="table-data first-element">Product</th>
-            <th className="table-data">Price</th>
-            <th className="table-data">Quantity</th>
+      <tbody>
+        {cart.map((item) => (
+          <tr className="cart-product-row" key={item.id}>
+            <td className="table-data first-element photo-item">
+              <VscClose
+                className="x-icon"
+                onClick={() => removeFromCart(item.id)}
+              />
 
-            <th className="table-data last-element">Subtotal</th>
+              <img className="cart-row-image" src={item.image}></img>
+              <span className="text">{item.name}</span>
+            </td>
+            <td className="table-data">{item.price}</td>
+            <td className="table-data">
+              <div className="operation-box">
+                <span style={{ margin: "0 10px" }}>{item.quantity}</span>
+                <span className="operations-quantity">
+                  <VscChevronUp
+                    className="operation-btn"
+                    onClick={() => updateQuantity(item.id, "add")}
+                  />
+
+                  <VscChevronDown
+                    className="operation-btn"
+                    onClick={() => updateQuantity(item.id, "subtract")}
+                    disabled={item.quantity === 1}
+                  />
+                </span>
+              </div>
+            </td>
+
+            <td className="table-data last-element">
+              $
+              {(
+                parseFloat(item.price.replace("$", "")) * item.quantity
+              ).toFixed(2)}
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {cart.map((item) => (
-            <tr className="cart-product-row" key={item.id}>
-              <td className="table-data first-element photo-item">
-                <VscClose
-                  className="x-icon"
-                  onClick={() => removeFromCart(item.id)}
-                />
-
-                <img className="cart-row-image" src={item.image}></img>
-                {item.name}
-              </td>
-              <td className="table-data">{item.price}</td>
-              <td className="table-data">
-                <div className="operation-box">
-                  <span style={{ margin: "0 10px" }}>{item.quantity}</span>
-                  <span className="operations-quantity">
-                    <VscChevronUp
-                      className="operation-btn"
-                      onClick={() => updateQuantity(item.id, "add")}
-                    />
-
-                    <VscChevronDown
-                      className="operation-btn"
-                      onClick={() => updateQuantity(item.id, "subtract")}
-                      disabled={item.quantity === 1}
-                    />
-                  </span>
-                </div>
-              </td>
-
-              <td className="table-data">
-                $
-                {(
-                  parseFloat(item.price.replace("$", "")) * item.quantity
-                ).toFixed(2)}
-              </td>
-              <td className="table-data last-element"></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        ))}
+      </tbody>
     );
   };
 
@@ -150,7 +172,8 @@ export const CartProvider = ({ children }) => {
         clearCart,
         getCartItemsCount,
         calculateTotal,
-        showCartItems, // Add the function to show cart items
+        showCartItems,
+        moveAllToCart, // Add the function to show cart items
       }}
     >
       {children}

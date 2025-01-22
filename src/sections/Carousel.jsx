@@ -187,6 +187,7 @@ function Carousel() {
           ))}
         </Slider>
       </div>
+      <button className="view-all">View all</button>
     </div>
   );
 }
