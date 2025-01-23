@@ -7,7 +7,7 @@ const MobileLinks = () => {
     <div className="mobile-links">
       <ul>
         <li>
-          <a href="/home">
+          <a href="/">
             <img className="mobile-hover home" src="home.png" alt="Home" />
           </a>
         </li>

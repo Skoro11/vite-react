@@ -202,6 +202,9 @@
 .view-all:hover {
   opacity: 50%;
 }
+.item-list {
+  display: none;
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .custom-arrows {
     display: none;
@@ -214,6 +217,7 @@
   }
   .heading-section {
     font-size: 18px;
+    padding: 5% 0px;
   }
   .heading-section table {
     display: none;
@@ -239,6 +243,37 @@
     border-radius: 8px;
     font-size: 83%;
   }
+  .watchlist-icon,
+  .like-icon {
+    display: none !important;
+  }
+  .addTo-cart {
+    opacity: 1;
+
+    position: static;
+  }
+  .view-all {
+    display: none;
+  }
+  .slider-container {
+    display: none;
+  }
+  .item-list {
+    display: grid;
+    grid-template-columns: repeat(2, 48%); /* 2 items per row */
+    grid-template-rows: repeat(2, 1fr); /* Limit to 2 rows (max) */
+    gap: 1% 5%; /* Adjust gap between items */
+    overflow: hidden; /* Hide anything that overflows */
+  }
+  .item-list div:nth-child(n + 7) {
+    display: none; /* Hide items starting from the 3rd item onwards */
+  }
+  .addTo-cart {
+    width: 100%;
+  }
+  .relative img {
+    width: 100%;
+  }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .custom-arrows {
@@ -261,6 +296,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  .watchlist-icon {
+    top: 28%;
   }
 }
 

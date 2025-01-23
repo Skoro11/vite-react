@@ -8,8 +8,9 @@ function Footer() {
           <li className="footer-heading footer-list-item">Lexus</li>
           <li className="footer-list-item">Subscribe</li>
           <li className="footer-list-item">Get 10% off your first order</li>
-          <li className="footer-list-item">
-            <input />
+          <li className="footer-list-item input-container">
+            <input className="email-input" placeholder="Enter your Email" />
+            <img className="send-image" src="send.png" alt="send arrow" />
           </li>
         </ul>
         <ul>
@@ -20,7 +21,7 @@ function Footer() {
           <li className="footer-list-item">lexus@gmail.com</li>
           <li className="footer-list-item">+88015-88888-9999</li>
         </ul>
-        <ul>
+        <ul className="vanish">
           <li className="footer-heading footer-list-item">Account</li>
           <li className="footer-list-item">My Account</li>
           <li className="footer-list-item">Login / Register</li>
@@ -35,7 +36,7 @@ function Footer() {
           <li className="footer-list-item">FAQ</li>
           <li className="footer-list-item">Contact</li>
         </ul>
-        <ul>
+        <ul className="vanish">
           <li className="footer-heading footer-list-item">Download app</li>
           <li className="footer-list-item">
             <div>

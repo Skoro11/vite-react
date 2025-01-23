@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between; /* Distribute space between items horizontally */
+  margin-bottom: 60px;
 }
-.likelist-image {
+.watchlist-image {
   width: 90%;
 }
 .add-cart {

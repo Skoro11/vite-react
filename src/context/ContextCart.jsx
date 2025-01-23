@@ -134,7 +134,7 @@ export const CartProvider = ({ children }) => {
             <td className="table-data">{item.price}</td>
             <td className="table-data">
               <div className="operation-box">
-                <span style={{ margin: "0 10px" }}>{item.quantity}</span>
+                <span className="quantity-box">{item.quantity}</span>
                 <span className="operations-quantity">
                   <VscChevronUp
                     className="operation-btn"
@@ -162,6 +162,51 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const ShowCartItemsMobile = () => {
+    if (cart.length === 0) {
+      return <div className="empty-cart">Your cart is empty</div>;
+    }
+    return (
+      <div>
+        {cart.map((item) => (
+          <div className="product-container-mobile" key={item.id}>
+            <div>
+              <img src={item.image} />
+              {item.name}
+              {item.price}
+              Like icon
+            </div>
+            <div>
+              <div>
+                <span>
+                  {" "}
+                  <VscChevronUp
+                    className="operation-btn"
+                    onClick={() => updateQuantity(item.id, "add")}
+                  />
+                  {item.quantity}
+                  <VscChevronDown
+                    className="operation-btn"
+                    onClick={() => updateQuantity(item.id, "subtract")}
+                    disabled={item.quantity === 1}
+                  />
+                </span>
+                <span>
+                  <button onClick={() => removeFromCart(item.id)}>
+                    Delete
+                  </button>
+                </span>
+                <span>
+                  <button>Wishlist</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -173,7 +218,8 @@ export const CartProvider = ({ children }) => {
         getCartItemsCount,
         calculateTotal,
         showCartItems,
-        moveAllToCart, // Add the function to show cart items
+        moveAllToCart,
+        ShowCartItemsMobile, // Add the function to show cart items
       }}
     >
       {children}

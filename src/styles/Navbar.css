@@ -44,14 +44,16 @@ body {
   padding: 5px 10px;
   margin-right: 20px; /* Space between search and other icons */
 }
-
+.navbar__search:focus-within {
+  outline: solid black;
+}
 .search-input {
   background-color: transparent;
   border: none;
   font-size: 13px;
 }
 .search-input:focus {
-  border: none;
+  outline: none;
 }
 .search-btn {
   background-color: transparent;
@@ -234,6 +236,9 @@ svg {
     margin-right: 0;
     border-radius: 20px;
   }
+  .navbar__search:focus-within {
+    outline: solid yellow;
+  }
   .navbar__logo {
     display: none;
   }
@@ -249,6 +254,9 @@ svg {
   }
   .search-input {
     width: 97%;
+  }
+  .search-input:focus {
+    outline: none;
   }
   .mobile-links {
     display: block;

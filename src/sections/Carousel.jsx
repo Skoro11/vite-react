@@ -42,6 +42,13 @@ function Carousel() {
           slidesToScroll: 3, // Dynamic scroll on mobile
         },
       },
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2, // Dynamic scroll on mobile
+        },
+      },
     ],
   };
 
@@ -188,6 +195,63 @@ function Carousel() {
         </Slider>
       </div>
       <button className="view-all">View all</button>
+      <div className="item-list">
+        {products.map((product) => (
+          <div key={product.id}>
+            <div className="relative">
+              <img src={product.image} alt={product.name} />
+              {/* Add onClick handler for "Add to Cart" button */}
+              <button
+                className="addTo-cart"
+                onClick={() => {
+                  addToCart(product); // Add the product to the cart
+                }}
+              >
+                Add To Cart
+              </button>
+
+              <div className="product-tag">{GetTag(product.tag)}</div>
+              {/* Image based Like button */}
+              <img
+                src={isLiked(product.id) ? "heart-fill.png" : "heart-empty.png"} // Replace with your icon paths
+                className="like-icon"
+                onClick={() => {
+                  addToLike(product); // This will add or remove from the like list
+                }}
+                style={{ cursor: "pointer" }} // Add pointer cursor to indicate it's clickable
+              />
+
+              {/* Watchlist button */}
+              <img
+                src={
+                  isInWatchlist(product.id)
+                    ? "eye-fill.png" // Icon for "Remove from Watchlist"
+                    : "eye-empty.png" // Icon for "Add to Watchlist"
+                }
+                className="watchlist-icon"
+                onClick={() => {
+                  addToWatchlist(product); // This will add or remove from the watchlist
+                }}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+
+            <div className="product-info">
+              <span className="product-name">{product.name}</span>
+              <p className="product-description">
+                <span className="full-price">{product.price}</span>
+                <span className="discounted-price">
+                  {product.discountedPrice}
+                </span>
+              </p>
+              <div className="stars">
+                <RenderStars stars={product.stars} />
+                <span className="reviews-number">{`(${product.numOfReviews})`}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
