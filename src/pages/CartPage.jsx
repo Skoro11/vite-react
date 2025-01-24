@@ -1,11 +1,11 @@
 import { useCart } from "../context/ContextCart"; // Adjust the import path accordingly
-import "./CartPage.css";
+import "../styles/CartPage.css";
 const CartPage = () => {
   const { showCartItems, calculateTotal, clearCart, ShowCartItemsMobile } =
     useCart();
 
   return (
-    <div>
+    <div className="min-height">
       <div className="cart-container">
         <div className="back-links">
           <a className="home-link" href="/">
@@ -22,8 +22,8 @@ const CartPage = () => {
             <thead>
               <tr className="cart-product-row">
                 <th className="table-data first-element">Product</th>
-                <th className="table-data">Price</th>
-                <th className="table-data">Quantity</th>
+                <th className="table-data price-column">Price</th>
+                <th className="table-data quantity-column">Quantity</th>
 
                 <th className="table-data last-element">Subtotal</th>
               </tr>

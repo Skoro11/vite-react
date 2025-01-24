@@ -169,36 +169,43 @@ export const CartProvider = ({ children }) => {
     return (
       <div>
         {cart.map((item) => (
-          <div className="product-container-mobile" key={item.id}>
-            <div>
+          <div className="product-card-mobile" key={item.id}>
+            <div className="product-container-mobile ">
               <img src={item.image} />
-              {item.name}
-              {item.price}
-              Like icon
+              <div className="description-section">
+                <div>{item.name}</div>
+                <div className="category-mobile">{item.category}</div>
+                <div className="price-mobile">{item.price}</div>
+                <div className="shipping-info">Eligable for Free Shipping</div>
+                <div className="stock-mobile">In stock</div>
+              </div>
             </div>
+
             <div>
-              <div>
-                <span>
-                  {" "}
-                  <VscChevronUp
-                    className="operation-btn"
-                    onClick={() => updateQuantity(item.id, "add")}
-                  />
-                  {item.quantity}
-                  <VscChevronDown
-                    className="operation-btn"
+              <div className="flex padding-top">
+                <div className="image-section-mobile">
+                  <span
                     onClick={() => updateQuantity(item.id, "subtract")}
-                    disabled={item.quantity === 1}
-                  />
-                </span>
-                <span>
-                  <button onClick={() => removeFromCart(item.id)}>
+                    className="operation-btn-mobile"
+                  >
+                    -
+                  </span>
+                  {item.quantity}
+                  <span
+                    onClick={() => updateQuantity(item.id, "add")}
+                    className="operation-btn-mobile"
+                  >
+                    +
+                  </span>
+                </div>
+                <div className="buttons-section description-section">
+                  <button
+                    className="delete-btn-mobile"
+                    onClick={() => removeFromCart(item.id)}
+                  >
                     Delete
                   </button>
-                </span>
-                <span>
-                  <button>Wishlist</button>
-                </span>
+                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 /* import "./styles/Navbar.css"; */
 /* import ProductButton from "./components/ProductFunctions.jsx"; */
 import Navbar from "./sections/Navbar";
+import "./App.css";
 /* import HeroSection from "./sections/Hero"; */
 import Carousel from "./sections/Carousel";
 import { CartProvider } from "./context/ContextCart";
@@ -12,6 +13,7 @@ import LikePage from "./pages/LikePage";
 import { WatchlistProvider } from "./context/ContextWatchlist";
 import WatchlistPage from "./pages/WatchlistPage";
 import Footer from "./sections/Footer";
+
 function App() {
   return (
     <Router>

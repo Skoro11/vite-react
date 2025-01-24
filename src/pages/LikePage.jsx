@@ -2,7 +2,7 @@ import { useLike } from "../context/ContextLike"; // Adjust the import path acco
 import { useCart } from "../context/ContextCart"; // Import for cart functionality
 import GetTag from "../components/Tags";
 import RenderStars from "../components/RenderStars";
-import "./LikePage.css";
+import "../styles/LikePage.css";
 import { FaTrashAlt } from "react-icons/fa";
 
 const LikePage = () => {

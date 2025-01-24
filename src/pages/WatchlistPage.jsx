@@ -2,7 +2,7 @@ import { useWatchlist } from "../context/ContextWatchlist"; // Adjust the import
 import { useCart } from "../context/ContextCart"; // Import for cart functionality
 import GetTag from "../components/Tags";
 import RenderStars from "../components/RenderStars";
-import "./WatchlistPage.css"; // Adjusted CSS file for Watchlist styling
+import "../styles/WatchlistPage.css"; // Adjusted CSS file for Watchlist styling
 import { FaTrashAlt } from "react-icons/fa";
 
 const WatchlistPage = () => {
