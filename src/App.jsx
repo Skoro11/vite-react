@@ -13,7 +13,7 @@ import LikePage from "./pages/LikePage";
 import { WatchlistProvider } from "./context/ContextWatchlist";
 import WatchlistPage from "./pages/WatchlistPage";
 import Footer from "./sections/Footer";
-
+import ProductURL from "./pages/ProductUrl";
 function App() {
   return (
     <Router>
@@ -28,7 +28,8 @@ function App() {
                 element={
                   <>
                     {/* <HeroSection /> */}
-                    <Carousel />
+                    {/* <Carousel /> */}
+                    <ProductURL />
                   </>
                 }
               />
@@ -52,7 +53,7 @@ function App() {
               <Route path="/watchlist" element={<></>} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
-            <MobileLinks /> <Footer />
+            <MobileLinks /> {/* <Footer /> */}
           </WatchlistProvider>
         </LikeProvider>
       </CartProvider>
