@@ -24,7 +24,9 @@ const WatchlistPage = () => {
   return (
     <div className="carousel-wrapper">
       <div className="watchlist-header">
-        <span>Watchlist ({getWatchlistItemsCount()})</span>
+        <span className="watchlist-items">
+          Watchlist ({getWatchlistItemsCount()})
+        </span>
         {/* Button to move all items to the cart */}
         <button className="all-bag-btn" onClick={handleMoveAllToCart}>
           Move All To Bag
@@ -36,7 +38,7 @@ const WatchlistPage = () => {
         ) : (
           watchlist.map((product) => (
             <div className="watchlist-item" key={product.id}>
-              <div className="relative">
+              <div className="relative product-margin">
                 <img
                   className="watchlist-image"
                   src={product.image}

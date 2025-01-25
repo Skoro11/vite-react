@@ -10,7 +10,7 @@
   position: absolute;
   left: 0%;
   bottom: 5px;
-  width: 91%;
+  width: 90%;
   padding: 5%;
   border: none;
   background-color: black;
@@ -61,4 +61,20 @@
 }
 .stars {
   padding-bottom: 10%;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .container-likelist {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .liked-items {
+    font-size: 16px;
+  }
+  .like-header {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
 }
