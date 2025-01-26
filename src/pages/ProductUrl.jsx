@@ -1,6 +1,13 @@
 import "./ProductUrl.css";
+import { useLike } from "../context/ContextLike";
 
 function ProductUrl() {
+  const { addToLike, likeList } = useLike();
+  // Function to check if a product is already liked
+  const isLiked = (productId) => {
+    return likeList.some((item) => item.id === productId);
+  };
+
   return (
     <div className="product-container">
       <div className="left-sidebar">
