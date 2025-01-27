@@ -21,7 +21,7 @@
   font-size: 15px;
   margin-bottom: 2%;
 }
-.product-info {
+.product-info-info {
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -134,7 +134,7 @@
     padding: 0;
     margin-inline: auto;
   }
-  .product-info {
+  .product-info-info {
     width: 100%;
   }
   .price-product-description {
@@ -151,7 +151,7 @@
   .services-container {
     display: none;
   }
-  .product-info {
+  .product-info-info {
     padding-left: 4%;
     justify-content: space-between;
   }

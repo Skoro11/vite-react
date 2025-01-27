@@ -1,41 +1,57 @@
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { products } from "../components/Products"; // Import the product list
+
 import "./ProductUrl.css";
-import { useLike } from "../context/ContextLike";
 
 function ProductUrl() {
-  const { addToLike, likeList } = useLike();
-  // Function to check if a product is already liked
-  const isLiked = (productId) => {
-    return likeList.some((item) => item.id === productId);
-  };
+  const { slug, id } = useParams(); // Get slug and id from the URL
+  const [product, setProduct] = useState(null); // State to hold the product data
+  const basePath = window.location.origin; // This gets the base path (i.e., the domain + root)
+
+  useEffect(() => {
+    // Find the product based on the slug and id
+    const fetchedProduct = products.find(
+      (product) => product.slug === slug && product.id === parseInt(id)
+    );
+    setProduct(fetchedProduct);
+  }, [slug, id]); // Re-run when slug or id changes
+
+  if (!product) {
+    return <div>Loading...</div>; // Show loading while fetching product
+  }
 
   return (
     <div className="product-container">
       <div className="left-sidebar">
-        <img src="Products/bag.png" /> <img src="Products/bag.png" />{" "}
-        <img src="Products/bag.png" /> <img src="Products/bag.png" />
+        <img src={product.image} alt={product.name} />
+        <img src={product.image} alt={product.name} />
+        <img src={product.image} alt={product.name} />
+        {/* You can add more product images here if available */}
       </div>
       <div className="main-image">
-        <img src="Products/bag.png" />
+        <img src={product.image} alt={product.name} />
       </div>
 
-      <div className="product-info">
+      <div className="product-info-info">
         <div className="product-name-product">
-          <h2>Havic HV G-92 Gamepad</h2>
-          <img src="heart-empty.png" />
+          <h2>{product.name}</h2>
+          <img src="heart-empty.png" alt="Like" />
         </div>
         <div className="stars-stock">
-          <img src="full-star.png" alt="" />
-          <img src="full-star.png" alt="" />
-          <img src="full-star.png" alt="" />
-          <img src="full-star.png" alt="" />
-          <img src="full-star.png" alt="" />
-          (150 Reviews) | <span className="green">In Stock</span>
+          {/* Assuming product.stars is an array or number */}
+          {[...Array(5)].map((_, index) => (
+            <img
+              key={index}
+              src={index < product.stars ? "full-star.png" : "empty-star.png"}
+              alt="star"
+            />
+          ))}
+          ({product.numOfReviews} Reviews) |{" "}
+          <span className="green">In Stock</span>
         </div>
-        <div className="price-product-description">150$</div>
-        <div className="product-description-product">
-          High-quality dry dog food specially formulated for specific breeds.
-          Packed with essential nutrients to keep your pet healthy and strong.
-        </div>
+        <div className="price-product-description">{product.price}</div>
+        <div className="product-description-product">{product.description}</div>
         <div className="colors">
           Colors: <span className="circle red"></span>
           <span className="circle blue"></span>
@@ -47,7 +63,7 @@ function ProductUrl() {
         <div className="services-container">
           <div className="services">
             <div className="flexed bottom-underline">
-              <img src="delivery.png" />
+              <img src="delivery.png" alt="delivery" />
               <div>
                 <span className="delivery">Free Delivery</span>
                 <br />
@@ -58,7 +74,7 @@ function ProductUrl() {
             </div>
 
             <div className="flexed">
-              <img src="return.png" />
+              <img src="return.png" alt="return" />
               <div>
                 <span className="delivery">Return Delivery</span>
                 <br />

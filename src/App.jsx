@@ -21,15 +21,13 @@ function App() {
         <LikeProvider>
           <WatchlistProvider>
             <Navbar />
-            {/* Routes replaces Switch in React Router v6 */}
             <Routes>
               <Route
                 path="/"
                 element={
                   <>
                     {/* <HeroSection /> */}
-                    {/* <Carousel /> */}
-                    <ProductUrl />
+                    <Carousel />
                   </>
                 }
               />
@@ -42,7 +40,8 @@ function App() {
                   </>
                 }
               />
-              {/*  <Route path="/product/:slug/:id" element={<ProductUrl />} /> */}
+              <Route path="/product/:slug/:id" element={<ProductUrl />} />
+
               <Route
                 path="/cart"
                 element={

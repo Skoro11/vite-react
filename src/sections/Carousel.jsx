@@ -139,7 +139,7 @@ function Carousel() {
             <div key={product.id}>
               <div className="relative">
                 <img src={product.image} alt={product.name} />
-                {/* Add onClick handler for "Add to Cart" button */}
+
                 <button
                   className="addTo-cart"
                   onClick={() => {
@@ -178,7 +178,11 @@ function Carousel() {
               </div>
 
               <div className="product-info">
-                <span className="product-name">{product.name}</span>
+                <span className="product-name">
+                  <a href={`/product/${product.slug}/${product.id}`}>
+                    {product.name}
+                  </a>
+                </span>
                 <p className="product-description">
                   <span className="full-price">{product.price}</span>
                   <span className="discounted-price">
