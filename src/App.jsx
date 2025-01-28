@@ -1,8 +1,6 @@
-/* import "./styles/Navbar.css"; */
-/* import ProductButton from "./components/ProductFunctions.jsx"; */
 import Navbar from "./sections/Navbar";
 import "./App.css";
-/* import HeroSection from "./sections/Hero"; */
+import HeroSection from "./sections/Hero";
 import Carousel from "./sections/Carousel";
 import { CartProvider } from "./context/ContextCart";
 import MobileLinks from "./sections/MobileLinks";
@@ -26,7 +24,7 @@ function App() {
                 path="/"
                 element={
                   <>
-                    {/* <HeroSection /> */}
+                    <HeroSection />
                     <Carousel />
                   </>
                 }
