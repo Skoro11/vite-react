@@ -12,7 +12,7 @@ const MobileLinks = () => {
           </a>
         </li>
         <li>
-          <a href="/user">
+          <a href="/like">
             <img className="mobile-hover" src="user-icon.png" alt="User" />
           </a>
         </li>

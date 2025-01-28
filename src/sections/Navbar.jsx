@@ -36,7 +36,9 @@ function Navbar() {
       </div>
       <div className="bordered">
         <div className="navbar__logo">
-          <h1>Lexus</h1>
+          <h1>
+            <a href="/">Lexus</a>
+          </h1>
         </div>
 
         <ul className="navbar__links">
@@ -51,9 +53,6 @@ function Navbar() {
           </li>
           <li>
             <a href="/about">Sign up</a>
-          </li>
-          <li>
-            <a href="/login">Admin</a>
           </li>
         </ul>
 

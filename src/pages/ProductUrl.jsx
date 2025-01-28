@@ -1,14 +1,19 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { products } from "../components/Products"; // Import the product list
-
+import { useCart } from "../context/ContextCart";
+import { useLike } from "../context/ContextLike";
 import "./ProductUrl.css";
 
 function ProductUrl() {
   const { slug, id } = useParams(); // Get slug and id from the URL
   const [product, setProduct] = useState(null); // State to hold the product data
-  const basePath = window.location.origin; // This gets the base path (i.e., the domain + root)
-
+  const { addToCart } = useCart();
+  const { addToLike, likeList } = useLike();
+  // Function to check if a product is already liked
+  const isLiked = (productId) => {
+    return likeList.some((item) => item.id === productId);
+  };
   useEffect(() => {
     // Find the product based on the slug and id
     const fetchedProduct = products.find(
@@ -36,7 +41,13 @@ function ProductUrl() {
       <div className="product-info-info">
         <div className="product-name-product">
           <h2>{product.name}</h2>
-          <img src="heart-empty.png" alt="Like" />
+          <img
+            src={isLiked(product.id) ? "heart-fill.png" : "heart-empty.png"} // Replace with your icon paths
+            onClick={() => {
+              addToLike(product); // This will add or remove from the like list
+            }}
+            style={{ cursor: "pointer" }} // Add pointer cursor to indicate it's clickable
+          />
         </div>
         <div className="stars-stock">
           {/* Assuming product.stars is an array or number */}
@@ -58,7 +69,14 @@ function ProductUrl() {
         </div>
 
         <div className="flex-container">
-          <button className="buy-btn">Add to Cart</button>
+          <button
+            className="buy-btn"
+            onClick={() => {
+              addToCart(product); // Add the product to the cart
+            }}
+          >
+            Add to Cart
+          </button>
         </div>
         <div className="services-container">
           <div className="services">

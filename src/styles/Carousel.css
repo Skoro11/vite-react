@@ -205,6 +205,9 @@
 .item-list {
   display: none;
 }
+.product-name a {
+  color: black;
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .custom-arrows {
     display: none;

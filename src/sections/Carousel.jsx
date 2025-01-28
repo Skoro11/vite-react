@@ -199,6 +199,7 @@ function Carousel() {
         </Slider>
       </div>
       <button className="view-all">View all</button>
+
       <div className="item-list">
         {products.map((product) => (
           <div key={product.id}>
@@ -241,7 +242,11 @@ function Carousel() {
             </div>
 
             <div className="product-info">
-              <span className="product-name">{product.name}</span>
+              <span className="product-name">
+                <a href={`/product/${product.slug}/${product.id}`}>
+                  {product.name}
+                </a>
+              </span>
               <p className="product-description">
                 <span className="full-price">{product.price}</span>
                 <span className="discounted-price">
