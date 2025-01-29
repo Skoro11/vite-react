@@ -4,7 +4,6 @@ import { products } from "../components/Products"; // Import products from Produ
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Carousel.css"; // Custom CSS for styling
-import Clock from "../components/Clock"; // Import Clock component
 import RenderStars from "../components/RenderStars";
 import GetTag from "../components/Tags";
 import { useCart } from "../context/ContextCart";
@@ -13,12 +12,11 @@ import { useWatchlist } from "../context/ContextWatchlist"; // Import the watchl
 
 function Carousel() {
   const sliderRef = useRef(null);
-  const { days, hours, minutes, seconds } = Clock();
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
   const { addToWatchlist, watchlist } = useWatchlist(); // Get `watchlist` from the context to check if item is already in the watchlist
-  const flashSaleProducts = products.filter(
-    (product) => product.specialCategory === "Flash Sales"
+  const BestSellingProducts = products.filter(
+    (product) => product.specialCategory === "Best Selling"
   );
 
   const settings = {
@@ -83,45 +81,12 @@ function Carousel() {
     <div className="carousel-wrapper">
       <div className="heading-description">
         <span className="orange orange-span"></span>
-        <div className="orange orange-text">Todays</div>
+        <div className="orange orange-text">This Month</div>
       </div>
 
       <div className="heading-section">
         <div className="heading-clock">
-          <h1>Flash Sales</h1>
-          <table>
-            <thead>
-              <tr>
-                <th className="heading-clock">Days</th>
-                <th></th>
-                <th className="heading-clock">Hours</th>
-                <th></th>
-                <th className="heading-clock">Minutes</th>
-                <th></th>
-                <th className="heading-clock">Seconds</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="time-output">{days}</td>
-                <td className="two-dots">
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                </td>
-                <td className="time-output">{hours}</td>
-                <td className="two-dots">
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                </td>
-                <td className="time-output">{minutes}</td>
-                <td className="two-dots">
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                </td>
-                <td className="time-output">{seconds}</td>
-              </tr>
-            </tbody>
-          </table>
+          <h1>Best Selling</h1>
         </div>
 
         <div className="custom-arrows">
@@ -138,7 +103,7 @@ function Carousel() {
       <div className="slider-container">
         <Slider ref={sliderRef} {...settings}>
           {/* Dynamically map through the products */}
-          {flashSaleProducts.map((product) => (
+          {BestSellingProducts.map((product) => (
             <div key={product.id}>
               <div className="relative">
                 <img src={product.image} alt={product.name} />

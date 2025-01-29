@@ -12,6 +12,7 @@ export const products = [
     description:
       "High-quality dry dog food specially formulated for specific breeds. Packed with essential nutrients to keep your pet healthy and strong.",
     category: "Pet Supplies",
+    specialCategory: "Flash Sales", // Example of adding special category
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const products = [
     description:
       "Capture stunning photos and videos with this versatile DSLR camera from Canon, offering excellent image quality and performance.",
     category: "Electronics",
+    specialCategory: "Best Selling", // Example of adding special category
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ export const products = [
     description:
       "Powerful gaming laptop with a Full HD display, high-end GPU, and fast processor to give you an immersive gaming experience.",
     category: "Electronics",
+    specialCategory: "Flash Sales",
   },
   {
     id: 4,
@@ -54,6 +57,7 @@ export const products = [
     description:
       "Customized skincare regimen designed for your unique needs. Helps with acne, wrinkles, and other skin concerns.",
     category: "Beauty & Skincare",
+    specialCategory: "Explore", // Example of adding special category
   },
   {
     id: 5,
@@ -68,6 +72,7 @@ export const products = [
     description:
       "A fun, battery-powered electric car for kids, offering hours of entertainment and outdoor play. Comes with safety features for peace of mind.",
     category: "Toys & Games",
+    specialCategory: "Best Selling",
   },
   {
     id: 6,
@@ -82,6 +87,7 @@ export const products = [
     description:
       "High-performance soccer cleats designed for young athletes. Provides excellent traction and comfort for the best play on the field.",
     category: "Sports & Outdoors",
+    specialCategory: "Explore",
   },
   {
     id: 7,
@@ -96,6 +102,7 @@ export const products = [
     description:
       "Ergonomic USB gamepad designed for shooter games. Offers precision controls and comfortable gameplay for hours of fun.",
     category: "Electronics",
+    specialCategory: "Flash Sales",
   },
   {
     id: 8,
@@ -110,6 +117,7 @@ export const products = [
     description:
       "Stylish quilted satin jacket that offers both warmth and luxury. Perfect for chilly evenings or adding a touch of elegance to your wardrobe.",
     category: "Fashion",
+    specialCategory: "Explore",
   },
   {
     id: 9,
@@ -124,6 +132,7 @@ export const products = [
     description:
       "A versatile and affordable bag that’s perfect for everyday use, offering ample space and durability.",
     category: "Accessories",
+    specialCategory: "Best Selling",
   },
   {
     id: 10,
@@ -138,6 +147,7 @@ export const products = [
     description:
       "Comfortable and stylish jacket perfect for cooler weather, offering a casual yet fashionable look.",
     category: "Fashion",
+    specialCategory: "Explore",
   },
   {
     id: 11,
@@ -152,5 +162,97 @@ export const products = [
     description:
       "Affordable and compact monitor with great resolution, ideal for home offices or casual gaming setups.",
     category: "Electronics",
+    specialCategory: "Flash Sales",
+  },
+  // New Products
+  {
+    id: 12,
+    slug: "gaming-chair",
+    image: "Products/chair.png",
+    stars: 4.5,
+    name: "Gaming Chair",
+    price: "$120",
+    numOfReviews: "42",
+    tag: "",
+    discountedPrice: "",
+    description:
+      "Ergonomic gaming chair designed for long hours of comfort and support. Adjustable and sleek, perfect for gaming or work.",
+    category: "Furniture",
+    specialCategory: "Flash Sales",
+  },
+  {
+    id: 13,
+    slug: "cooler",
+    image: "Products/cooler.png",
+    stars: 4,
+    name: "Portable Cooler",
+    price: "$89",
+    numOfReviews: "55",
+    tag: "",
+    discountedPrice: "",
+    description:
+      "Portable cooler with spacious capacity to keep your drinks and snacks fresh on the go. Ideal for outdoor adventures.",
+    category: "Outdoor Gear",
+    specialCategory: "Best Selling",
+  },
+  {
+    id: 14,
+    slug: "flash-joystick",
+    image: "Products/joystickFlash.png",
+    stars: 4.2,
+    name: "Flash Joystick",
+    price: "$50",
+    numOfReviews: "38",
+    tag: "-15%", // Discounted tag
+    discountedPrice: "$42.5",
+    description:
+      "A high-quality joystick for gaming enthusiasts, featuring responsive controls and smooth gameplay experience.",
+    category: "Electronics",
+    specialCategory: "Flash Sales",
+  },
+  {
+    id: 15,
+    slug: "mechanical-keyboard",
+    image: "Products/keyboard.png",
+    stars: 4.7,
+    name: "Mechanical Keyboard",
+    price: "$95",
+    numOfReviews: "105",
+    tag: "-10%", // Discounted tag
+    discountedPrice: "$85.5",
+    description:
+      "A durable mechanical keyboard designed for fast typists and gamers, with customizable RGB lighting and responsive keys.",
+    category: "Electronics",
+    specialCategory: "Explore",
+  },
+  {
+    id: 16,
+    slug: "shelf",
+    image: "Products/shelf.png",
+    stars: 4.4,
+    name: "Wooden Shelf",
+    price: "$70",
+    numOfReviews: "27",
+    tag: "",
+    discountedPrice: "",
+    description:
+      "Stylish and functional wooden shelf perfect for any room, offering plenty of space for books, plants, or decor.",
+    category: "Furniture",
+    specialCategory: "Best Selling",
+  },
+  {
+    id: 17,
+    slug: "sofa",
+    image: "Products/sofa.jpg",
+    stars: 4.3,
+    name: "Comfortable Sofa",
+    price: "$800",
+    numOfReviews: "63",
+    tag: "",
+    discountedPrice: "",
+    description:
+      "A comfortable and stylish sofa that blends perfectly into your living room. Made with high-quality materials for long-lasting comfort and durability.",
+    category: "Furniture",
+    specialCategory: "Explore", // You can change this to "Flash Sales" or "Best Selling" based on your needs
   },
 ];

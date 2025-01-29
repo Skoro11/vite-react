@@ -12,6 +12,7 @@ import { WatchlistProvider } from "./context/ContextWatchlist";
 import WatchlistPage from "./pages/WatchlistPage";
 import Footer from "./sections/Footer";
 import ProductUrl from "./pages/ProductUrl";
+import CarouselBestSelling from "./sections/CarouselBestSelling";
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
                   <>
                     <HeroSection />
                     <Carousel />
+                    <CarouselBestSelling />
                   </>
                 }
               />
