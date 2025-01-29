@@ -13,6 +13,7 @@ import WatchlistPage from "./pages/WatchlistPage";
 import Footer from "./sections/Footer";
 import ProductUrl from "./pages/ProductUrl";
 import CarouselBestSelling from "./sections/CarouselBestSelling";
+import CategorySectiion from "./sections/CategorySection";
 function App() {
   return (
     <Router>
@@ -25,9 +26,10 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <HeroSection />
-                    <Carousel />
-                    <CarouselBestSelling />
+                    {/* <HeroSection />
+                    <Carousel /> */}
+                    {/* <CarouselBestSelling /> */}
+                    <CategorySectiion />
                   </>
                 }
               />
