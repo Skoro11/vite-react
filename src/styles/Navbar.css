@@ -183,6 +183,9 @@ svg {
   padding: 10px 0; /* Top and bottom padding */
   z-index: 1000; /* Ensure it stays above other elements */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for elevation */
+  display: none;
+  padding: 5px 0;
+  margin-top: 600px;
 }
 
 /* Style the list inside the sticky footer */
@@ -205,10 +208,7 @@ svg {
 .burger {
   display: none;
 }
-.mobile-links {
-  display: none;
-  padding: 5px 0;
-}
+
 .mobile-hover:hover {
   border-top: 1px solid black;
 }

@@ -1,21 +1,30 @@
 import "./Category.css";
-
+import { useNavigate } from "react-router-dom";
 function CategorySection() {
+  const navigate = useNavigate();
+  // Function to handle category click
+  const handleCategoryClick = (category) => {
+    navigate(`/${category}`); // Navigate to the route based on category
+  };
+
   return (
     <div className="carousel-wrapper">
       <div className="heading-description">
         <span className="orange orange-span"></span>
-        <div className="orange orange-text">This Month</div>
+        <div className="orange orange-text">Categories</div>
       </div>
 
       <div className="heading-section">
         <div className="heading-clock">
-          <h1>Best Selling</h1>
+          <h1>Browse by Category</h1>
         </div>
       </div>
 
       <div className="container-category">
-        <div className="item-category">
+        <div
+          className="item-category"
+          onClick={() => handleCategoryClick("electronics")}
+        >
           <svg
             width="56"
             height="56"
@@ -66,7 +75,10 @@ function CategorySection() {
           </svg>
           Electronics
         </div>
-        <div className="item-category">
+        <div
+          className="item-category"
+          onClick={() => handleCategoryClick("furniture")}
+        >
           <svg
             width="56"
             height="56"
@@ -123,7 +135,10 @@ function CategorySection() {
           </svg>
           Furniture
         </div>
-        <div className="item-category">
+        <div
+          className="item-category"
+          onClick={() => handleCategoryClick("sport")}
+        >
           <svg
             width="56"
             height="56"
@@ -195,7 +210,10 @@ function CategorySection() {
           </svg>
           Sport
         </div>
-        <div className="item-category">
+        <div
+          className="item-category"
+          onClick={() => handleCategoryClick("accessories")}
+        >
           <svg
             width="56"
             height="56"
@@ -229,7 +247,10 @@ function CategorySection() {
           </svg>
           Accessories
         </div>
-        <div className="item-category">
+        <div
+          className="item-category"
+          onClick={() => handleCategoryClick("toys")}
+        >
           <svg
             width="56"
             height="56"
@@ -279,7 +300,10 @@ function CategorySection() {
           </svg>
           Toys
         </div>
-        <div className="item-category">
+        <div
+          className="item-category"
+          onClick={() => handleCategoryClick("other")}
+        >
           <svg
             width="56"
             height="56"

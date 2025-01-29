@@ -15,8 +15,8 @@ function Carousel() {
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
   const { addToWatchlist, watchlist } = useWatchlist(); // Get `watchlist` from the context to check if item is already in the watchlist
-  const BestSellingProducts = products.filter(
-    (product) => product.specialCategory === "Best Selling"
+  const ExploreProducts = products.filter(
+    (product) => product.specialCategory === "Explore"
   );
 
   const settings = {
@@ -81,12 +81,12 @@ function Carousel() {
     <div className="carousel-wrapper">
       <div className="heading-description">
         <span className="orange orange-span"></span>
-        <div className="orange orange-text">This Month</div>
+        <div className="orange orange-text">Our Products</div>
       </div>
 
       <div className="heading-section">
         <div className="heading-clock">
-          <h1>Best Selling</h1>
+          <h1>Explore Our Products</h1>
         </div>
 
         <div className="custom-arrows">
@@ -103,7 +103,7 @@ function Carousel() {
       <div className="slider-container">
         <Slider ref={sliderRef} {...settings}>
           {/* Dynamically map through the products */}
-          {BestSellingProducts.map((product) => (
+          {ExploreProducts.map((product) => (
             <div key={product.id}>
               <div className="relative">
                 <img src={product.image} alt={product.name} />
@@ -169,7 +169,7 @@ function Carousel() {
       <button className="view-all">View all</button>
 
       <div className="item-list">
-        {BestSellingProducts.map((product) => (
+        {ExploreProducts.map((product) => (
           <div key={product.id}>
             <div className="relative">
               <img src={product.image} alt={product.name} />

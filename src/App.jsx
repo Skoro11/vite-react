@@ -14,6 +14,7 @@ import Footer from "./sections/Footer";
 import ProductUrl from "./pages/ProductUrl";
 import CarouselBestSelling from "./sections/CarouselBestSelling";
 import CategorySectiion from "./sections/CategorySection";
+import CarouselExplore from "./sections/CarouselExplore";
 function App() {
   return (
     <Router>
@@ -27,9 +28,10 @@ function App() {
                 element={
                   <>
                     {/* <HeroSection />
-                    <Carousel /> */}
-                    {/* <CarouselBestSelling /> */}
-                    <CategorySectiion />
+                    <Carousel />
+                    <CarouselBestSelling />
+                    <CategorySectiion /> */}
+                    <CarouselExplore />
                   </>
                 }
               />

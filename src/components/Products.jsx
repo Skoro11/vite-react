@@ -240,19 +240,4 @@ export const products = [
     category: "Furniture",
     specialCategory: "Best Selling",
   },
-  {
-    id: 17,
-    slug: "sofa",
-    image: "Products/sofa.jpg",
-    stars: 4.3,
-    name: "Comfortable Sofa",
-    price: "$800",
-    numOfReviews: "63",
-    tag: "",
-    discountedPrice: "",
-    description:
-      "A comfortable and stylish sofa that blends perfectly into your living room. Made with high-quality materials for long-lasting comfort and durability.",
-    category: "Furniture",
-    specialCategory: "Explore", // You can change this to "Flash Sales" or "Best Selling" based on your needs
-  },
 ];
