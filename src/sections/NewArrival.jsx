@@ -1,4 +1,4 @@
-import "./NewArrival.css";
+import "../styles/NewArrival.css";
 function NewArrival() {
   return (
     <>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { products } from "../components/Products"; // Import the product list
 import { useCart } from "../context/ContextCart";
 import { useLike } from "../context/ContextLike";
-import "./ProductUrl.css";
+import "../styles/ProductUrl.css";
 
 function ProductUrl() {
   const { slug, id } = useParams(); // Get slug and id from the URL

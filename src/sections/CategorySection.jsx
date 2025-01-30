@@ -1,4 +1,4 @@
-import "./Category.css";
+import "../styles/Category.css";
 import { useNavigate } from "react-router-dom";
 function CategorySection() {
   const navigate = useNavigate();

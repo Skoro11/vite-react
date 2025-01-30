@@ -17,6 +17,7 @@ import CategorySection from "./sections/CategorySection";
 import CarouselExplore from "./sections/CarouselExplore";
 import Banner from "./sections/Banner";
 import NewArrival from "./sections/NewArrival";
+import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Router>
@@ -62,8 +63,7 @@ function App() {
                 }
               />
 
-              <Route path="/watchlist" element={<></>} />
-              <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
             <MobileLinks /> <Footer />
           </WatchlistProvider>
