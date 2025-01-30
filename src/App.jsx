@@ -13,7 +13,7 @@ import WatchlistPage from "./pages/WatchlistPage";
 import Footer from "./sections/Footer";
 import ProductUrl from "./pages/ProductUrl";
 import CarouselBestSelling from "./sections/CarouselBestSelling";
-import CategorySectiion from "./sections/CategorySection";
+import CategorySection from "./sections/CategorySection";
 import CarouselExplore from "./sections/CarouselExplore";
 import Banner from "./sections/Banner";
 import NewArrival from "./sections/NewArrival";
@@ -29,12 +29,15 @@ function App() {
                 path="/"
                 element={
                   <>
-                    {/* <HeroSection />
+                    <HeroSection />
                     <Carousel />
+
+                    <CategorySection />
                     <CarouselBestSelling />
-                    <CategorySectiion /> */}
-                    {/* <CarouselExplore /> */}
-                    {/* <Banner /> */}
+                    <Banner />
+
+                    <CarouselExplore />
+
                     <NewArrival />
                   </>
                 }
@@ -62,7 +65,7 @@ function App() {
               <Route path="/watchlist" element={<></>} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
-            <MobileLinks /> {/* <Footer /> */}
+            <MobileLinks /> <Footer />
           </WatchlistProvider>
         </LikeProvider>
       </CartProvider>

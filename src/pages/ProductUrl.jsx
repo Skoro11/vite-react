@@ -63,14 +63,10 @@ function ProductUrl() {
         </div>
         <div className="price-product-description">{product.price}</div>
         <div className="product-description-product">{product.description}</div>
-        <div className="colors">
-          Colors: <span className="circle red"></span>
-          <span className="circle blue"></span>
-        </div>
 
         <div className="flex-container">
           <button
-            className="buy-btn"
+            className="buy-btn mb-10"
             onClick={() => {
               addToCart(product); // Add the product to the cart
             }}
@@ -80,7 +76,7 @@ function ProductUrl() {
         </div>
         <div className="services-container">
           <div className="services">
-            <div className="flexed bottom-underline">
+            <div className="flexed padding-3 bottom-underline">
               <img src="delivery.png" alt="delivery" />
               <div>
                 <span className="delivery">Free Delivery</span>
@@ -91,7 +87,7 @@ function ProductUrl() {
               </div>
             </div>
 
-            <div className="flexed">
+            <div className="flexed padding-3">
               <img src="return.png" alt="return" />
               <div>
                 <span className="delivery">Return Delivery</span>

@@ -2,7 +2,8 @@
   max-width: 1170px;
   margin-inline: auto;
   position: relative;
-  padding-inline: 30px;
+
+  margin: 30px auto;
 }
 .banner-container img {
   width: 100%;

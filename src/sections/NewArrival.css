@@ -7,9 +7,6 @@
   ); /* 4 columns that can shrink down */
   grid-template-rows: auto;
   gap: 27px;
-  max-width: 1170px;
-  margin-inline: auto;
-  padding-inline: 30px;
 }
 .grid-container img {
   width: 100%;
@@ -73,6 +70,23 @@
   border-bottom: 1px solid white;
   background-color: transparent;
 }
+/* Services section */
+
+.service-container {
+  max-width: 1170px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 15px;
+  margin: 70px 0;
+}
+.services-heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+.services-description {
+  font-size: 14px;
+}
 
 @media (min-width: 320px) and (max-width: 767px) {
   .arrival-description,
@@ -86,7 +100,7 @@
   .grid-container {
     flex-wrap: wrap;
     display: flex;
-    padding-inline: 15px;
+    margin-top: 4%;
     gap: 10px;
   }
   .item1,
@@ -97,6 +111,9 @@
   }
   .item2 img {
     object-position: 75%;
+  }
+  .service-container {
+    display: none;
   }
 }
 
@@ -111,5 +128,11 @@
   }
   .arrival-btn {
     font-size: 13px;
+  }
+  .service-container-flexed img {
+    width: 60px;
+  }
+  .services-heading {
+    font-size: 16px;
   }
 }

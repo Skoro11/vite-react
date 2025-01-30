@@ -1,18 +1,9 @@
 /* Wrapper to position everything nicely */
-.carousel-wrapper {
-  max-width: 1170px;
-  margin: 0 auto;
-  padding-inline: 30px;
-}
+
 .slick-slide img {
   width: 93%;
 }
-.heading-clock {
-  display: flex;
-  justify-content: space-between;
-  width: 48%;
-  align-items: center;
-}
+
 /* Position for custom arrows */
 .custom-arrows {
   display: flex;
@@ -61,10 +52,7 @@
   font-size: 32px;
   font-weight: bold;
 }
-.heading-clock {
-  font-weight: normal;
-  font-size: 12px;
-}
+
 .orange-span {
   border-radius: 5px;
   margin-right: 10px;
@@ -225,9 +213,7 @@
   .heading-section table {
     display: none;
   }
-  .heading-clock {
-    width: 100%;
-  }
+
   .heading-description {
     display: none;
   }
@@ -251,9 +237,7 @@
     display: none !important;
   }
   .addTo-cart {
-    opacity: 1;
-
-    position: static;
+    display: none;
   }
   .view-all {
     display: none;
@@ -268,7 +252,7 @@
     gap: 1% 5%; /* Adjust gap between items */
     overflow: hidden; /* Hide anything that overflows */
   }
-  .item-list div:nth-child(n + 7) {
+  .item-list div:nth-child(n + 5) {
     display: none; /* Hide items starting from the 3rd item onwards */
   }
   .addTo-cart {
@@ -278,16 +262,14 @@
     width: 100%;
   }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .custom-arrows {
     display: none;
   }
   .time-output {
     font-size: 22px;
   }
-  .heading-clock {
-    width: 65%;
-  }
+
   .orange-span {
     height: 30px;
     width: 15px;

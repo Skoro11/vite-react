@@ -5,3 +5,38 @@ a {
   color: black;
   cursor: pointer;
 }
+.carousel-wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+
+  padding: 50px 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.356);
+}
+.heading-clock {
+  display: flex;
+  justify-content: space-between;
+  width: 48%;
+  align-items: center;
+  font-weight: normal;
+  font-size: 12px;
+  padding: 10px 0;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .carousel-wrapper {
+    padding: 10px 15px;
+    border-bottom: none;
+  }
+  .heading-clock {
+    width: 100%;
+    font-size: 8px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heading-clock {
+    width: 65%;
+    padding: 7px 0px;
+  }
+  .carousel-wrapper {
+    padding: 20px 30px;
+  }
+}

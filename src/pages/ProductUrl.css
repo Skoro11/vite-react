@@ -72,7 +72,12 @@
 }
 .flexed {
   display: flex;
+}
+.padding-3 {
   padding: 3%;
+}
+.mb-10 {
+  margin-bottom: 10px;
 }
 .services {
   border: 1px solid black;
