@@ -15,6 +15,8 @@ import ProductUrl from "./pages/ProductUrl";
 import CarouselBestSelling from "./sections/CarouselBestSelling";
 import CategorySectiion from "./sections/CategorySection";
 import CarouselExplore from "./sections/CarouselExplore";
+import Banner from "./sections/Banner";
+import NewArrival from "./sections/NewArrival";
 function App() {
   return (
     <Router>
@@ -31,7 +33,9 @@ function App() {
                     <Carousel />
                     <CarouselBestSelling />
                     <CategorySectiion /> */}
-                    <CarouselExplore />
+                    {/* <CarouselExplore /> */}
+                    {/* <Banner /> */}
+                    <NewArrival />
                   </>
                 }
               />
