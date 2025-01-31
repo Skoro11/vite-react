@@ -18,6 +18,7 @@ import CarouselExplore from "./sections/CarouselExplore";
 import Banner from "./sections/Banner";
 import NewArrival from "./sections/NewArrival";
 import NotFound from "./pages/NotFound";
+import AdminPanel from "./admin/AdminPanel";
 function App() {
   return (
     <Router>
@@ -30,7 +31,8 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <HeroSection />
+                    <AdminPanel />
+                    {/* <HeroSection />
                     <Carousel />
 
                     <CategorySection />
@@ -39,7 +41,7 @@ function App() {
 
                     <CarouselExplore />
 
-                    <NewArrival />
+                    <NewArrival /> */}
                   </>
                 }
               />
@@ -65,7 +67,7 @@ function App() {
 
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <MobileLinks /> <Footer />
+            <MobileLinks /> {/* <Footer /> */}
           </WatchlistProvider>
         </LikeProvider>
       </CartProvider>
