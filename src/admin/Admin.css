@@ -119,3 +119,7 @@ button:hover {
   display: inline-block;
   margin-right: 5px;
 }
+.image-product-row {
+  width: 65px;
+  display: inline-block;
+}
