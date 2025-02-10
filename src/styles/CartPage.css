@@ -89,6 +89,7 @@
 }
 .cart-btn,
 .coupon-btn {
+  color: black;
   width: 218px;
   height: 56px;
   background-color: transparent;

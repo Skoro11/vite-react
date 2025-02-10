@@ -10,7 +10,6 @@ a {
   margin: 0 auto;
 
   padding: 50px 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.356);
 }
 .heading-clock {
   display: flex;
@@ -22,9 +21,13 @@ a {
   padding: 10px 0;
 }
 @media (min-width: 320px) and (max-width: 767px) {
-  .carousel-wrapper {
+  .carousel-wrapper,
+  .mg-top-50-sides-30-bottom-0 {
     padding: 10px 15px;
     border-bottom: none;
+  }
+  .mg-top-50-sides-30-bottom-0 {
+    margin: 0 !important;
   }
   .heading-clock {
     width: 100%;
@@ -36,7 +39,17 @@ a {
     width: 65%;
     padding: 7px 0px;
   }
-  .carousel-wrapper {
+  .carousel-wrapper,
+  .mg-top-50-sides-30-bottom-0 {
     padding: 20px 30px;
   }
+  .mg-top-50-sides-30-bottom-0 {
+    margin: 0 !important;
+  }
+}
+.width-1170 {
+  max-width: 1170px;
+}
+.mg-inline {
+  margin-inline: auto;
 }

@@ -78,29 +78,30 @@ function Carousel() {
   };
 
   return (
-    <div className="carousel-wrapper">
-      <div className="heading-description">
-        <span className="orange orange-span"></span>
-        <div className="orange orange-text">Our Products</div>
-      </div>
-
-      <div className="heading-section">
-        <div className="heading-clock">
-          <h1>Explore Our Products</h1>
+    <div className="mg-top-50-sides-30-bottom-0">
+      <div className="width-1170 mg-inline">
+        <div className="heading-description">
+          <span className="orange orange-span"></span>
+          <div className="orange orange-text">Our Products</div>
         </div>
 
-        <div className="custom-arrows">
-          <div className="next-arrow" onClick={handlePrev}>
-            <img src="arrow-black.png" alt="Next" />
+        <div className="heading-section">
+          <div className="heading-clock">
+            <h1>Explore Our Products</h1>
           </div>
-          <div className="prev-arrow" onClick={handleNext}>
-            <img src="arrow-black.png" alt="Previous" />
+
+          <div className="custom-arrows">
+            <div className="next-arrow" onClick={handlePrev}>
+              <img src="arrow-black.png" alt="Next" />
+            </div>
+            <div className="prev-arrow" onClick={handleNext}>
+              <img src="arrow-black.png" alt="Previous" />
+            </div>
           </div>
         </div>
       </div>
-
       {/* Slider Container */}
-      <div className="slider-container">
+      <div className="slider-container carousel-wrapper-product-line">
         <Slider ref={sliderRef} {...settings}>
           {/* Dynamically map through the products */}
           {ExploreProducts.map((product) => (
@@ -145,7 +146,7 @@ function Carousel() {
                 />
               </div>
 
-              <div className="product-info">
+              <div className="product-info mg-inline">
                 <span className="product-name">
                   <a href={`/product/${product.slug}/${product.id}`}>
                     {product.name}
