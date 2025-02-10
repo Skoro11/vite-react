@@ -31,8 +31,8 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <AdminPanel />
-                    {/* <HeroSection />
+                    {/* <AdminPanel /> */}
+                    <HeroSection />
                     <Carousel />
 
                     <CategorySection />
@@ -41,7 +41,7 @@ function App() {
 
                     <CarouselExplore />
 
-                    <NewArrival /> */}
+                    <NewArrival />
                   </>
                 }
               />
