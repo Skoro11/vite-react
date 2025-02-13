@@ -1,0 +1,40 @@
+.contact-page{
+    
+    max-width: 1170px;
+}
+.contact-container{
+    justify-content: space-between;
+}
+.left-contact-container,
+.right-contact-container{
+    padding:4%;
+    border-radius:5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+.left-contact-container{
+    width:25%;
+}
+.right-contact-container{
+    width:55%;
+}
+.input-contact-page{
+    background-color:#F5F5F5;
+}
+
+.send-message-container{
+    margin: 3% 0;
+    width: 100%;
+    
+}
+.send-message-textarea{
+    width:-webkit-fill-available;
+    height: 150px;
+    resize: none;
+}
+.send-message-btn{
+    float: right;
+}
+.links-home{
+    margin:46px 0;
+}

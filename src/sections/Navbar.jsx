@@ -46,7 +46,7 @@ function Navbar() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/about">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
           <li>
             <a href="/about">About</a>

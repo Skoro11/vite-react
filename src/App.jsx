@@ -19,6 +19,7 @@ import Banner from "./sections/Banner";
 import NewArrival from "./sections/NewArrival";
 import NotFound from "./pages/NotFound";
 import AdminPanel from "./admin/AdminPanel";
+import ContactPage from "./pages/Contact"
 function App() {
   return (
     <Router>
@@ -55,7 +56,7 @@ function App() {
                 }
               />
               <Route path="/product/:slug/:id" element={<ProductUrl />} />
-
+              <Route path="/contact" element={<ContactPage />} />
               <Route
                 path="/cart"
                 element={
@@ -67,7 +68,7 @@ function App() {
 
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <MobileLinks /> {/* <Footer /> */}
+            <MobileLinks /> <Footer />
           </WatchlistProvider>
         </LikeProvider>
       </CartProvider>
