@@ -176,10 +176,9 @@
   border-radius: 10px;
   align-items: center;
   background-color: white;
-}
-.image-section-mobile {
   outline: 1px solid yellow;
 }
+
 .product-container-mobile {
   display: flex;
   width: 100%;
@@ -227,6 +226,7 @@
   width: 60px;
   border-radius: 20px;
   padding: 8%;
+  color: black;
   background-color: white;
   border: 1px solid #000000a1;
 }

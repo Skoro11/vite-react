@@ -5,11 +5,38 @@ button {
 .bold{
   font-weight: bold;
 }
+.radius-20px{
+  border-radius:20px;
+}
+.bg-black{
+  background-color:black;
+}
+.bg-white{
+  background-color:white;
+}
 .padd-left-5{
   padding-left:5%;
 }
+.no-padding{
+  padding:0;
+}
 .mg-bottom-100{
   margin-bottom:100px;
+}
+.mg-bottom-5{
+  margin-bottom:5%;
+}
+.font-48px{
+  font-size:48px;
+}
+.font-32px{
+  font-size:32px;
+}
+.width-50{
+  width:50%;
+}
+.width-100{
+  width:100%;
 }
 .direction-column{
   flex-direction: column;
