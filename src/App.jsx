@@ -20,6 +20,7 @@ import NewArrival from "./sections/NewArrival";
 import NotFound from "./pages/NotFound";
 import AdminPanel from "./admin/AdminPanel";
 import ContactPage from "./pages/Contact"
+import AboutPage from "./pages/AboutPage";
 function App() {
   return (
     <Router>
@@ -57,12 +58,13 @@ function App() {
               />
               <Route path="/product/:slug/:id" element={<ProductUrl />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route
                 path="/cart"
                 element={
-                  <>
+                 
                     <CartPage />
-                  </>
+                 
                 }
               />
 

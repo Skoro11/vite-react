@@ -5,11 +5,23 @@ button {
 .bold{
   font-weight: bold;
 }
+.mx-width-1170px{
+  max-width:1170px;
+}
 .padd-left-5{
   padding-left:5%;
 }
 .mg-bottom-100{
   margin-bottom:100px;
+}
+.mg-inline-auto{
+  margin-inline:auto;
+}
+.bg-bottom-5{
+  margin-bottom: 5%;
+}
+.padding-right-5{
+  padding-right:5%;
 }
 .direction-column{
   flex-direction: column;
@@ -20,6 +32,7 @@ button {
 .pd-in-30p{
 padding-inline: 30px;
 }
+
 .gap-3{
   gap:3%;
 }
