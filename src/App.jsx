@@ -20,7 +20,11 @@ import NewArrival from "./sections/NewArrival";
 import NotFound from "./pages/NotFound";
 import AdminPanel from "./admin/AdminPanel";
 import ContactPage from "./pages/Contact"
+<<<<<<< HEAD
 import AboutPage from "./pages/About";
+=======
+import AboutPage from "./pages/AboutPage";
+>>>>>>> 4dc31c66fca44460e2f866d6fe13e17655feccf4
 function App() {
   return (
     <Router>
@@ -62,9 +66,9 @@ function App() {
               <Route
                 path="/cart"
                 element={
-                  <>
+                 
                     <CartPage />
-                  </>
+                 
                 }
               />
 

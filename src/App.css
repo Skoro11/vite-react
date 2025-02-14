@@ -1,24 +1,29 @@
 button {
   cursor: pointer;
 }
-
-.bold{
-  font-weight: bold;
-}
-.radius-20px{
-  border-radius:20px;
-}
 .bg-black{
   background-color:black;
 }
-.bg-white{
-  background-color:white;
+.color-white{
+  color:white;
+}
+.bold{
+  font-weight: bold;
+}
+.font-48px{
+  font-size:48px;
+}
+.font-32px{
+  font-size:32px;
+}
+.mx-width-1170px{
+  max-width:1170px;
 }
 .padd-left-5{
   padding-left:5%;
 }
-.no-padding{
-  padding:0;
+.padding-right-10{
+  padding-right:10%;
 }
 .mg-bottom-100{
   margin-bottom:100px;
@@ -38,6 +43,33 @@ button {
 .width-100{
   width:100%;
 }
+.mg-inline-auto{
+  margin-inline:auto;
+}
+.mg-bottom-10{
+  margin-bottom:10%;
+}
+.mg-bottom-5{
+  margin-bottom:5%;
+}
+.width-100{
+  width:100%;
+}
+.width-50{
+  width:50%;
+}
+.width-40{
+  width:40%;
+}
+.width-20{
+  width:20%;
+}
+.bg-bottom-5{
+  margin-bottom: 5%;
+}
+.padding-right-5{
+  padding-right:5%;
+}
 .direction-column{
   flex-direction: column;
 }
@@ -47,6 +79,7 @@ button {
 .pd-in-30p{
 padding-inline: 30px;
 }
+
 .gap-3{
   gap:3%;
 }
