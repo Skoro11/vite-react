@@ -20,6 +20,7 @@
 }
 .input-contact-page{
     background-color:#F5F5F5;
+    width:30%;
 }
 
 .send-message-container{
@@ -38,3 +39,12 @@
 .links-home{
     margin:46px 0;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+    .direction-column-767{
+        flex-direction: column;
+    }
+    .right-contact-container{
+        width:auto;
+    }
+  }
+ 
