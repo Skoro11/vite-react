@@ -1,0 +1,10 @@
+.box-about{
+    background-color:white;
+    height: auto;
+    padding: 5%;
+    border:1px solid black;
+    align-items:center;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
