@@ -7,14 +7,14 @@ function AboutPage(){
             <div className="flex align-center mg-bottom-5">
                <div className="width-50">
                <h1 className="font-48px mg-bottom-5">Our Story</h1>
-                <p className="mg-bottom-5">Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region. 
+                <p className="mg-bottom-5">Launched in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region. 
 
                 </p>
                 
                 <p>Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer.</p>
            </div> 
            <div className="width-50">
-            <img className="width-100" src="customers.png" />
+            <img className="width-100" src="customers.png" alt="Customers" />
            </div>
            
            </div>
@@ -82,10 +82,48 @@ function AboutPage(){
            </div>
 
            <div className="flex space-between mg-bottom-5">
-            <div>
+
+
             
+            <div className="flex space-evenly width-100  ">
+                <div className="flex direction-column gap-10px width-30">
+                    <img className="image-bg image-custom" src="will.png" alt="Personal" />
+                <div className="font-32px bold">Will Richadson</div>
+                <div>Product Designer</div>
+                <div className="flex gap-3">
+                    <img className="pointer" src="twitter-black.png" alt="Twitter"/> 
+                    <img className="pointer" src="insta-black.png" alt="" />
+                    <img className="pointer" src="linkedin-black.png" alt="LinkedIn" /></div>
+                </div>
+
+
+
+                <div className="flex direction-column gap-10px width-30">
+                    <img className="image-bg image-custom" src="emma.png" alt="Personal" />
+                <div className="font-32px bold">Emma Willson</div>
+                <div>Managing Director</div>
+                <div className="flex gap-3">
+                    <img className="pointer" src="twitter-black.png" alt="Twitter"/> 
+                    <img className="pointer" src="insta-black.png" alt="" />
+                    <img className="pointer" src="linkedin-black.png" alt="LinkedIn" /></div>
+                </div>
+
+
+
+                <div className="flex direction-column gap-10px width-30">
+                    <img className="image-bg image-custom" src="tom.png" alt="Personal" />
+                <div className="font-32px bold" >Tom Cruise</div>
+                <div>Founder and Chairman</div>
+                <div className="flex gap-3">
+                    <img className="pointer" src="twitter-black.png" alt="Twitter"/> 
+                    <img className="pointer" src="insta-black.png" alt="" />
+                    <img className="pointer" src="linkedin-black.png" alt="LinkedIn" /></div>
+                </div>
+                
+                
             </div>
-           </div>
+            </div>
+           
         </section>
     )
 }

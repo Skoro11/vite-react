@@ -36,3 +36,7 @@ stroke:black;
     border-radius: 58%;
     display: flex;
 }
+.image-custom{
+    height: 300px;
+    object-fit: contain;
+}
