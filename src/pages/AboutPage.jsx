@@ -20,9 +20,9 @@ function AboutPage(){
             </div>
             <div className="flex space-between">
                 <div className="box-about ">
-                <img src="arrow-icon.png" />
+                <img src="arrow-icon.png" alt="arrow" />
                 <span className="bold font-32px">10.5k </span>
-                <span>Sallers active our site</span>
+                <span>Sellers active our site</span>
                 </div>
                 <div className="box-about bg-black color-white width-20">
 
