@@ -40,3 +40,9 @@ stroke:black;
     height: 300px;
     object-fit: contain;
 }
+
+@media (min-width: 320px) and (max-width: 767px){
+    .our-story-container{
+        display:block;
+    }
+}

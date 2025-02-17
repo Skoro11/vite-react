@@ -2,25 +2,25 @@ import "./About.css"
 
 function AboutPage(){
     return(
-        <section className="mg-inline contact-page pd-in-30p pd-in-15-mb">
+        <section className="mg-inline contact-page pd-in-30p pd-in-15-mb ">
             <div className="links-home"><a className="home-link" href="/">Home</a> / About</div>
-            <div className="flex align-center mg-bottom-5">
-               <div className="width-50">
-               <h1 className="font-48px mg-bottom-5">Our Story</h1>
-                <p className="mg-bottom-5">Launched in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region. 
+            <div className="flex align-center mg-bottom-10 our-story-container">
+               <div className="width-50 width-100-sm ">
+               <h1 className="font-48px mg-bottom-10">Our Story</h1>
+                <p className="mg-bottom-5 width-70 width-90-768-1023 width-100-sm">Launched in 2015, Lexus is South Asia’s premier online shopping marketplace with an active presence in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Lexus has 10,500 sallers and 300 brands and serves 3 millioons customers across the region. 
 
                 </p>
                 
-                <p>Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer.</p>
+                <p className="width-70 width-90-768-1023 width-100-sm mg-bottom-5">Lexus has more than 1 Million products to offer, growing at a very fast. Lexus offers a diverse assortment in categories ranging  from consumer.</p>
            </div> 
-           <div className="width-50">
+           <div className="width-50 width-100-sm">
             <img className="width-100" src="customers.png" alt="Customers" />
            </div>
            
            </div>
 
 
-           <div className="flex space-between mg-bottom-5">
+           <div className="flex space-between mg-bottom-10 text-align-center display-none-sm">
             <div className="box flex">
                 <div className="bg-black svg-container">
                 <svg className="no-padding svg-icon"width="35" height="32" viewBox="0 0 35 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,12 +81,12 @@ function AboutPage(){
             </div>
            </div>
 
-           <div className="flex space-between mg-bottom-5">
+           <div className="flex space-between mg-bottom-5 ">
 
 
             
-            <div className="flex space-evenly width-100  ">
-                <div className="flex direction-column gap-10px width-30">
+            <div className="flex space-evenly width-100 mg-bottom-5 display-none-sm">
+                <div className="flex direction-column gap-10px width-30 ">
                     <img className="image-bg image-custom" src="will.png" alt="Personal" />
                 <div className="font-32px bold">Will Richadson</div>
                 <div>Product Designer</div>

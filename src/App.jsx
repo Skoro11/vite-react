@@ -21,6 +21,7 @@ import NotFound from "./pages/NotFound";
 import AdminPanel from "./admin/AdminPanel";
 import ContactPage from "./pages/Contact"
 import AboutPage from "./pages/About";
+import Services from "./sections/Services";
 function App() {
   return (
     <Router>
@@ -44,6 +45,7 @@ function App() {
                     <CarouselExplore />
 
                     <NewArrival />
+                    <Services />
                   </>
                 }
               />
@@ -58,7 +60,12 @@ function App() {
               />
               <Route path="/product/:slug/:id" element={<ProductUrl />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/about" element={<AboutPage />} />
+              <Route path="/about" element={
+                <><AboutPage />
+                <Services />
+                </>
+                
+            } />
               <Route
                 path="/cart"
                 element={

@@ -1,8 +1,14 @@
 button {
   cursor: pointer;
 }
+.text-align-center{
+  text-align: center;
+}
 .pointer{
   cursor:pointer;
+}
+.flex-wrap{
+  flex-wrap: wrap;
 }
 .bg-black{
   background-color:black;
@@ -34,6 +40,9 @@ button {
 .mg-bottom-100{
   margin-bottom:100px;
 }
+.mg-bottom-10{
+  margin-bottom:10%;
+}
 .mg-bottom-5{
   margin-bottom:5%;
 }
@@ -49,6 +58,11 @@ button {
 .width-100{
   width:100%;
 }
+.width-70{
+  width:70%;
+}
+
+
 .mg-inline-auto{
   margin-inline:auto;
 }
@@ -150,6 +164,15 @@ display:none;
   .no-display-320-767{
     display:none
   }
+  .width-100-sm{
+    width:100%;
+  }
+  .display-none-sm{
+    display:none !important;
+  }
+  .width-40-sm{
+    width:40%;
+  }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .heading-clock {
@@ -162,6 +185,9 @@ display:none;
   }
   .mg-top-50-sides-30-bottom-0 {
     margin: 0 !important;
+  }
+  .width-90-768-1023{
+    width:90%;
   }
 }
 .width-1170 {
