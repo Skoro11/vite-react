@@ -23,7 +23,7 @@ function CategorySection() {
       <div className="container-category">
         <div
           className="item-category"
-          onClick={() => handleCategoryClick("electronics")}
+          onClick={() => handleCategoryClick("all")}
         >
           <svg
             width="56"
@@ -77,7 +77,7 @@ function CategorySection() {
         </div>
         <div
           className="item-category"
-          onClick={() => handleCategoryClick("furniture")}
+          onClick={() => handleCategoryClick("all")}
         >
           <svg
             width="56"
@@ -137,7 +137,7 @@ function CategorySection() {
         </div>
         <div
           className="item-category"
-          onClick={() => handleCategoryClick("sport")}
+          onClick={() => handleCategoryClick("all")}
         >
           <svg
             width="56"
@@ -212,7 +212,7 @@ function CategorySection() {
         </div>
         <div
           className="item-category"
-          onClick={() => handleCategoryClick("accessories")}
+          onClick={() => handleCategoryClick("all")}
         >
           <svg
             width="56"
@@ -249,7 +249,7 @@ function CategorySection() {
         </div>
         <div
           className="item-category"
-          onClick={() => handleCategoryClick("toys")}
+          onClick={() => handleCategoryClick("all")}
         >
           <svg
             width="56"
@@ -302,7 +302,7 @@ function CategorySection() {
         </div>
         <div
           className="item-category"
-          onClick={() => handleCategoryClick("other")}
+          onClick={() => handleCategoryClick("all")}
         >
           <svg
             width="56"

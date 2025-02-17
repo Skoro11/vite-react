@@ -55,6 +55,12 @@ button {
 .mg-bottom-2{
   margin-bottom:2%;
 }
+.mg-vertical-2{
+  margin: 2% 0;
+}
+.mg-top-1{
+  margin-top:1%;
+}
 .mg-top-5{
   margin-top:5%;
 }

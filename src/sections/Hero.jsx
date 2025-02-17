@@ -8,34 +8,34 @@ function Hero() {
       <div className="hero__left">
         <ul>
           <li>
-            <a href="/">Womens Fashion</a>
+            <a href="/all">Womens Fashion</a>
           </li>
           <li>
-            <a href="/">Mens Fashion</a>
+            <a href="/all">Mens Fashion</a>
           </li>
           <li>
-            <a href="/">Electronics</a>
+            <a href="/all">Electronics</a>
           </li>
           <li>
-            <a href="/">Home & Kitchen</a>
+            <a href="/all">Home & Kitchen</a>
           </li>
           <li>
-            <a href="/">Beauty & Personal Care</a>
+            <a href="/all">Beauty & Personal Care</a>
           </li>
           <li>
-            <a href="/">Sports & Outdoors</a>
+            <a href="/all">Sports & Outdoors</a>
           </li>
           <li>
-            <a href="/">Toys & Games</a>
+            <a href="/all">Toys & Games</a>
           </li>
           <li>
-            <a href="/">Health & Wellness</a>
+            <a href="/all">Health & Wellness</a>
           </li>
           <li>
-            <a href="/">Books & Stationery</a>
+            <a href="/all">Books & Stationery</a>
           </li>
           <li>
-            <a href="/">Jewelry & Accessories</a>
+            <a href="/all">Jewelry & Accessories</a>
           </li>
         </ul>
       </div>
@@ -48,7 +48,7 @@ function Hero() {
             Up to 10% <br></br>off Voucher
           </div>
           <div className="hero__shop-now">
-            Shop Now {""}
+            Shop Now 
             <img src={arrowIcon} alt="Arrow" className="arrow__icon" />
           </div>
         </div>

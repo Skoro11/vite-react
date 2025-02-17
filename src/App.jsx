@@ -25,6 +25,7 @@ import Services from "./sections/Services";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import MobileOptions from "./pages/Options/"
+import AllProductsPage from "./pages/AllProductPage"
 function App() {
   return (
     <Router>
@@ -69,11 +70,21 @@ function App() {
                 </>
                 
             } />
+            <Route path="/about" element={
+                <>
+                <AboutPage />
+                <Services />
+                </>
+                
+            } />
               <Route
-                path="/cart"
+                path="/all"
                 element={
-                 
-                    <CartPage />
+                 <>
+                 <HeroSection />
+                 <AllProductsPage />
+                 </>
+                  
                  
                 }
               />
@@ -90,6 +101,14 @@ function App() {
                 element={
                  
                     <LoginPage />
+                 
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                 
+                    <CartPage />
                  
                 }
               />

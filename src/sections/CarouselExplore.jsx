@@ -167,8 +167,7 @@ function Carousel() {
           ))}
         </Slider>
       </div>
-      <button className="view-all">View all</button>
-
+      <a href="/all"><button className="view-all">View all</button></a>
       <div className="item-list">
         {ExploreProducts.map((product) => (
           <div key={product.id}>
