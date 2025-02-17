@@ -22,6 +22,8 @@ import AdminPanel from "./admin/AdminPanel";
 import ContactPage from "./pages/Contact"
 import AboutPage from "./pages/About";
 import Services from "./sections/Services";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
 function App() {
   return (
     <Router>
@@ -71,6 +73,22 @@ function App() {
                 element={
                  
                     <CartPage />
+                 
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                 
+                    <SignupPage />
+                 
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                 
+                    <LoginPage />
                  
                 }
               />
