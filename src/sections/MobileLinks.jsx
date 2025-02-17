@@ -27,7 +27,7 @@ const MobileLinks = () => {
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/options">
             <img className="mobile-hover" src="hamburger.png" alt="Menu" />
           </a>
         </li>

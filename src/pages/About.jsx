@@ -2,8 +2,8 @@ import "./About.css"
 
 function AboutPage(){
     return(
-        <section className="mg-inline contact-page pd-in-30p pd-in-15-mb ">
-            <div className="links-home"><a className="home-link" href="/">Home</a> / About</div>
+        <section className="mg-inline contact-page pd-in-30p pd-in-15-mb mg-top-10-sm">
+            <div className="links-home display-none-sm"><a className="home-link" href="/">Home</a> / About</div>
             <div className="flex align-center mg-bottom-10 our-story-container">
                <div className="width-50 width-100-sm ">
                <h1 className="font-48px mg-bottom-10">Our Story</h1>

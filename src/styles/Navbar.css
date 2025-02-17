@@ -10,7 +10,6 @@ body {
 
 /* Navbar.css */
 .navbar {
-  position: relative; /* Make sure the dropdown menu is positioned relative to the navbar */
   border-bottom: 1px solid #02020226;
   position: sticky;
   top: 0;
@@ -183,7 +182,7 @@ svg {
   bottom: 0; /* Stick to the bottom of the viewport */
   width: 100%; /* Full width for mobile devices */
   background-color: #f8f8f8; /* Background color for the sticky bar */
-  padding: 10px 0; /* Top and bottom padding */
+ /* Top and bottom padding */
   z-index: 1000; /* Ensure it stays above other elements */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for elevation */
   display: none;
@@ -208,9 +207,7 @@ svg {
   text-align: center; /* Center-align the text */
 }
 
-.burger {
-  display: none;
-}
+
 
 .mobile-hover:hover {
   border-top: 1px solid black;
@@ -273,9 +270,7 @@ svg {
   .desktop-item {
     display: none;
   }
-  /* .sale {
-    display: none;
-  } */
+ 
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .sale {
@@ -286,11 +281,7 @@ svg {
   }
 }
 
-.burger {
-  cursor: pointer;
-  height: fit-content;
-  width: fit-content;
-}
+
 .box-line {
   width: 32px;
   height: 5px;

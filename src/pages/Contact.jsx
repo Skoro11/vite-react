@@ -4,9 +4,9 @@ function ContactPage(){
     return(
        
         <section className="mg-inline contact-page pd-in-30p pd-in-15-mb">
-        <div className="links-home"><a className="home-link" href="/">Home</a> / Contact</div>
+        <div className="links-home display-none-sm"><a className="home-link" href="/">Home</a> / Contact</div>
 
-<div className="contact-container flex mg-bottom-100 direction-column-767">
+<div className="contact-container flex mg-bottom-100 direction-column-767 mg-top-10-sm">
     <div className="left-contact-container no-display-320-767">
         <ul className="flex space-between direction-column height-100 ">
             <li className="flex align-center bold"><img src="call-us-icon.png" alt="Call us"/><span className="padd-left-5">Call to us</span></li>

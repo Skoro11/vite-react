@@ -24,6 +24,7 @@ import AboutPage from "./pages/About";
 import Services from "./sections/Services";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import MobileOptions from "./pages/Options/"
 function App() {
   return (
     <Router>
@@ -92,7 +93,14 @@ function App() {
                  
                 }
               />
-
+              <Route
+                path="/options"
+                element={
+                 
+                    <MobileOptions />
+                 
+                }
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <MobileLinks /> <Footer />
