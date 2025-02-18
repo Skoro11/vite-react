@@ -72,7 +72,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="copyright">Copyright Toni Skoro 2025</div>
+      <div className="copyright">Designed by Rimel, developed by Toni Skoro 2025</div>
     </div>
   );
 }
