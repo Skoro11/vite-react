@@ -7,33 +7,22 @@ const CartContext = createContext();
 // CartProvider Component to wrap the root of the app (or part of the component tree)
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state for fetch
 
-  // Add moveAllToCart function
-  const moveAllToCart = (likeList, addToCart, addToLike) => {
-    let updatedCart = [...cart];
+  // Fetch the cart items from the backend
+  const fetchCartItems = async () => {
+    try {
+      const response = await fetch("/api/cart"); // Replace with your backend endpoint
+      const data = await response.json();
 
-    // Add all items from likeList to the cart and remove them from the likeList
-    likeList.forEach((product) => {
-      // Check if product is already in the cart
-      const existingProduct = updatedCart.find(
-        (item) => item.id === product.id
-      );
-
-      if (existingProduct) {
-        // If product already exists in cart, increase its quantity
-        existingProduct.quantity += 1;
-      } else {
-        // If it's a new product, add it with quantity 1
-        product.quantity = 1;
-        updatedCart.push(product);
+      if (data && Array.isArray(data)) {
+        setCart(data);
       }
-
-      // Remove the product from the like list
-      addToLike(product); // This will now be done for every product
-    });
-
-    // Update the cart state with the new items
-    setCart(updatedCart);
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Load cart from localStorage when the component mounts
@@ -42,6 +31,8 @@ export const CartProvider = ({ children }) => {
     if (storedCart) {
       setCart(storedCart);
     }
+    // Fetch the cart from the backend after loading localStorage data
+    fetchCartItems();
   }, []);
 
   // Update localStorage whenever the cart changes
@@ -98,13 +89,16 @@ export const CartProvider = ({ children }) => {
   // Function to calculate the total price of items in the cart
   const calculateTotal = () => {
     return cart
-      .reduce(
-        (total, item) =>
-          total + parseFloat(item.price.replace("$", "")) * item.quantity,
-        0
-      )
-      .toFixed(2); // Return total as a string with two decimal points
+      .reduce((total, item) => {
+        // Check if item.price is a string and remove the dollar sign if so, or use it directly if it's a number
+        const price = typeof item.price === 'string' 
+          ? parseFloat(item.price.replace("$", "")) 
+          : item.price;  
+        return total + price * item.quantity;
+      }, 0)
+      .toFixed(2); // Round to two decimal places
   };
+  
 
   // Function to show the items inside the cart (HTML/JSX representation)
   const showCartItems = () => {
@@ -127,7 +121,6 @@ export const CartProvider = ({ children }) => {
                 className="x-icon"
                 onClick={() => removeFromCart(item.id)}
               />
-
               <img className="cart-row-image" src={item.image}></img>
               <span className="text">{item.name}</span>
             </td>
@@ -140,7 +133,6 @@ export const CartProvider = ({ children }) => {
                     className="operation-btn"
                     onClick={() => updateQuantity(item.id, "add")}
                   />
-
                   <VscChevronDown
                     className="operation-btn"
                     onClick={() => updateQuantity(item.id, "subtract")}
@@ -152,9 +144,14 @@ export const CartProvider = ({ children }) => {
 
             <td className="table-data last-element">
               $
-              {(
-                parseFloat(item.price.replace("$", "")) * item.quantity
-              ).toFixed(2)}
+              {
+  (
+    (typeof item.price === 'string'
+      ? parseFloat(item.price.replace("$", ""))
+      : item.price) * item.quantity
+  ).toFixed(2)
+}
+
             </td>
           </tr>
         ))}
@@ -170,7 +167,7 @@ export const CartProvider = ({ children }) => {
       <div>
         {cart.map((item) => (
           <div className="product-card-mobile" key={item.id}>
-            <div className="product-container-mobile ">
+            <div className="product-container-mobile">
               <img src={item.image} />
               <div className="description-section">
                 <div>{item.name}</div>
@@ -225,8 +222,8 @@ export const CartProvider = ({ children }) => {
         getCartItemsCount,
         calculateTotal,
         showCartItems,
-        moveAllToCart,
-        ShowCartItemsMobile, // Add the function to show cart items
+        ShowCartItemsMobile,
+        loading, // Pass loading state to the consumers
       }}
     >
       {children}
@@ -238,3 +235,4 @@ export const CartProvider = ({ children }) => {
 export const useCart = () => {
   return useContext(CartContext);
 };
+

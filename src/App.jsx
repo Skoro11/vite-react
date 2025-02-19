@@ -26,6 +26,8 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import MobileOptions from "./pages/Options/"
 import AllProductsPage from "./pages/AllProductPage"
+import Test from "./sections/Test"
+import TestCarousel from "./sections/TestCarousel";
 function App() {
   return (
     <Router>
@@ -120,6 +122,19 @@ function App() {
                  
                 }
               />
+              <Route
+                path="/test"
+                element={
+                  <>
+                  
+                  <TestCarousel />
+                    <Test />
+                  </>
+                  
+                 
+                }
+              />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
             <MobileLinks /> <Footer />
