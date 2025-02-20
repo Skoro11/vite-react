@@ -3,8 +3,12 @@ import axios from 'axios';
 
 // Function to fetch and filter products
 export const fetchData = async () => {
+ 
+
   try {
-    const response = await axios.get('http://localhost:8080/products');
+    
+
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
     return response.data.map(product => ({
       id: product.id,
       slug: product.slug,

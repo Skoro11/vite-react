@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 link.txt
 TODO.js
-vite-react\src\components\Products.jsx
+./components/Products1
+.env
