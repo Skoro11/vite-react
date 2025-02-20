@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 link.txt
 TODO.js
-./components/Products1
 .env
