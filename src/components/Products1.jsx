@@ -1,4 +1,4 @@
-/* export const products = [
+export const products = [
   {
     id: 1,
     slug: "breed-dry-dog-food",
@@ -241,4 +241,3 @@
     specialCategory: "Best Selling",
   },
 ];
- */
