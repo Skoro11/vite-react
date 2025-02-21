@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Slider from "react-slick";
-import { products } from "../components/Products"; // Import products from Products.jsx
+import { ExploreProducts } from "../components/Products"; // Import products from Products.jsx
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Carousel.css"; // Custom CSS for styling
@@ -15,9 +15,9 @@ function CarouselExplore() {
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
   const { addToWatchlist, watchlist } = useWatchlist(); // Get `watchlist` from the context to check if item is already in the watchlist
-  const ExploreProducts = products.filter(
+  /* const ExploreProducts = products.filter(
     (product) => product.specialCategory === "Explore"
-  );
+  ); */
 
   const settings = {
     dots: false,

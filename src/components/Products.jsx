@@ -1,11 +1,16 @@
 // ProductTest.jsx
 import axios from 'axios';
 
+let products = [];
+let flashSaleProducts = [];
+let BestSellingProducts = [];
+let ExploreProducts = [];
+
 // Function to fetch and filter products
-export const fetchData = async () => {
+const fetchAndFilterProducts = async () => {
   try {
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
-    const products = response.data.map(product => ({
+    products = response.data.map(product => ({
       id: product.id,
       slug: product.slug,
       image: product.image,
@@ -21,34 +26,21 @@ export const fetchData = async () => {
     }));
 
     // Immediately filter the products based on specialCategory
-    const flashSaleProducts = products.filter(
+    flashSaleProducts = products.filter(
       (product) => product.specialCategory === "Flash Sales"
     );
-    const BestSellingProducts = products.filter(
+    BestSellingProducts = products.filter(
       (product) => product.specialCategory === "Best Selling"
     );
-    const ExploreProducts = products.filter(
+    ExploreProducts = products.filter(
       (product) => product.specialCategory === "Explore"
     );
-
-    // Return all products along with the filtered arrays
-    return { products, flashSaleProducts, BestSellingProducts, ExploreProducts };
   } catch (error) {
     console.error('Error fetching data:', error);
-    return { products: [], flashSaleProducts: [], BestSellingProducts: [], ExploreProducts: [] };
   }
 };
 
-// Pre-fetch products and immediately filter them
-export let products = [];
-export let flashSaleProducts = [];
-export let BestSellingProducts = [];
-export let ExploreProducts = [];
+// Fetch data before exporting
+await fetchAndFilterProducts();
 
-(async () => {
-  const data = await fetchData();
-  products = data.products;
-  flashSaleProducts = data.flashSaleProducts;
-  BestSellingProducts = data.BestSellingProducts;
-  ExploreProducts = data.ExploreProducts;
-})();
+export { products, flashSaleProducts, BestSellingProducts, ExploreProducts };
