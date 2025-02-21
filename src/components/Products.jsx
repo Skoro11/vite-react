@@ -25,22 +25,18 @@ const fetchAndFilterProducts = async () => {
       specialCategory: product.specialCategory,
     }));
 
-    // Immediately filter the products based on specialCategory
-    flashSaleProducts = products.filter(
-      (product) => product.specialCategory === "Flash Sales"
-    );
-    BestSellingProducts = products.filter(
-      (product) => product.specialCategory === "Best Selling"
-    );
-    ExploreProducts = products.filter(
-      (product) => product.specialCategory === "Explore"
-    );
+    flashSaleProducts = products.filter(product => product.specialCategory === "Flash Sales");
+    BestSellingProducts = products.filter(product => product.specialCategory === "Best Selling");
+    ExploreProducts = products.filter(product => product.specialCategory === "Explore");
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 };
 
-// Fetch data before exporting
-await fetchAndFilterProducts();
+// Initialize the function but WITHOUT `await`
+fetchAndFilterProducts().then(() => {
+  console.log("Products data fetched successfully!");
+});
 
+// Export the variables (but they may be empty initially)
 export { products, flashSaleProducts, BestSellingProducts, ExploreProducts };
