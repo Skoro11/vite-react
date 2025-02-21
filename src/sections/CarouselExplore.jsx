@@ -10,7 +10,7 @@ import { useCart } from "../context/ContextCart";
 import { useLike } from "../context/ContextLike";
 import { useWatchlist } from "../context/ContextWatchlist"; // Import the watchlist context
 
-function Carousel() {
+function CarouselExplore() {
   const sliderRef = useRef(null);
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
@@ -153,7 +153,7 @@ function Carousel() {
                   </a>
                 </span>
                 <p className="product-description">
-                  <span className="full-price">{product.price}</span>
+                  <span className="full-price">{product.price}$</span>
                   <span className="discounted-price">
                     {product.discountedPrice}
                   </span>
@@ -216,7 +216,7 @@ function Carousel() {
                 </a>
               </span>
               <p className="product-description">
-                <span className="full-price">{product.price}</span>
+                <span className="full-price">{product.price}$</span>
                 <span className="discounted-price">
                   {product.discountedPrice}
                 </span>
@@ -233,4 +233,4 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+export default CarouselExplore;

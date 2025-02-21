@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Slider from "react-slick";
-import { products } from "../components/Products"; // Import products from Products.jsx
+import { flashSaleProducts } from "../components/Products"; // Import products from Products.jsx
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Carousel.css"; // Custom CSS for styling
@@ -17,9 +17,9 @@ function Carousel() {
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
   const { addToWatchlist, watchlist } = useWatchlist(); // Get `watchlist` from the context to check if item is already in the watchlist
-  const flashSaleProducts = products.filter(
+  /* const flashSaleProducts = products.filter(
     (product) => product.specialCategory === "Flash Sales"
-  );
+  ); */
 
   const settings = {
     dots: false,
@@ -189,7 +189,7 @@ function Carousel() {
                   </a>
                 </span>
                 <p className="product-description">
-                  <span className="full-price">{product.price}</span>
+                  <span className="full-price">{product.price}$</span>
                   <span className="discounted-price">
                     {product.discountedPrice}
                   </span>
@@ -206,7 +206,7 @@ function Carousel() {
       <a href="/all"><button className="view-all">View all</button></a>
 
       <div className="item-list">
-        {products.map((product) => (
+        {flashSaleProducts.map((product) => (
           <div key={product.id}>
             <div className="relative">
               <img src={product.image} alt={product.name} />
@@ -253,7 +253,7 @@ function Carousel() {
                 </a>
               </span>
               <p className="product-description">
-                <span className="full-price">{product.price}</span>
+                <span className="full-price">{product.price}$</span>
                 <span className="discounted-price">
                   {product.discountedPrice}
                 </span>

@@ -1,6 +1,6 @@
 // Test.jsx
 import { useState, useEffect } from 'react';
-import { fetchData } from '../components/Products'; // Correctly import fetchData
+import { products } from '../components/Products'; // Correctly import fetchData
 
 function Test() {
   const [productsObject, setProductsObject] = useState({});
@@ -22,11 +22,11 @@ function Test() {
     <div>
       <h1>Flash Sale Products</h1>
       <ul>
-        {Object.keys(productsObject).map((productName) => {
+        {products.map((productName) => {
           const product = productsObject[productName];  // Access product by name
           return (
             <li key={productName}>
-              <h3>{productName}</h3> {/* Display product name */}
+              <h3>{productName}</h3> 
               <p>{product.description}</p>
               <p>Price: {product.price}</p>
               <p>Discounted Price: {product.discountedPrice}</p>

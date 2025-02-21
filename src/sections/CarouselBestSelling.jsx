@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Slider from "react-slick";
-import { products } from "../components/Products"; // Import products from Products.jsx
+import { BestSellingProducts } from "../components/Products"; // Import products from Products.jsx
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Carousel.css"; // Custom CSS for styling
@@ -10,14 +10,14 @@ import { useCart } from "../context/ContextCart";
 import { useLike } from "../context/ContextLike";
 import { useWatchlist } from "../context/ContextWatchlist"; // Import the watchlist context
 
-function Carousel() {
+function CarouselBestSelling() {
   const sliderRef = useRef(null);
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
   const { addToWatchlist, watchlist } = useWatchlist(); // Get `watchlist` from the context to check if item is already in the watchlist
-  const BestSellingProducts = products.filter(
+ /*  const BestSellingProducts = products.filter(
     (product) => product.specialCategory === "Best Selling"
-  );
+  ); */
 
   const settings = {
     dots: false,
@@ -103,70 +103,69 @@ function Carousel() {
 
       {/* Slider Container */}
       <div className="slider-container carousel-wrapper-product-line">
-        <Slider ref={sliderRef} {...settings}>
-          {/* Dynamically map through the products */}
-          {BestSellingProducts.map((product) => (
-            <div key={product.id}>
-              <div className="relative">
-                <img src={product.image} alt={product.name} />
+      <Slider ref={sliderRef} {...settings}>
+  {/* Check if there are products */}
+  {BestSellingProducts.length > 0 ? (
+    BestSellingProducts.map((product) => (
+      <div key={product.id}>
+        <div className="relative">
+          <img src={product.image} alt={product.name} />
 
-                <button
-                  className="addTo-cart"
-                  onClick={() => {
-                    addToCart(product); // Add the product to the cart
-                  }}
-                >
-                  Add To Cart
-                </button>
+          <button
+            className="addTo-cart"
+            onClick={() => {
+              addToCart(product); // Add the product to the cart
+            }}
+          >
+            Add To Cart
+          </button>
 
-                <div className="product-tag">{GetTag(product.tag)}</div>
-                {/* Image based Like button */}
-                <img
-                  src={
-                    isLiked(product.id) ? "heart-fill.png" : "heart-empty.png"
-                  } // Replace with your icon paths
-                  className="like-icon"
-                  onClick={() => {
-                    addToLike(product); // This will add or remove from the like list
-                  }}
-                  style={{ cursor: "pointer" }} // Add pointer cursor to indicate it's clickable
-                />
+          <div className="product-tag">{GetTag(product.tag)}</div>
+          {/* Image based Like button */}
+          <img
+            src={isLiked(product.id) ? "heart-fill.png" : "heart-empty.png"} // Replace with your icon paths
+            className="like-icon"
+            onClick={() => {
+              addToLike(product); // This will add or remove from the like list
+            }}
+            style={{ cursor: "pointer" }} // Add pointer cursor to indicate it's clickable
+          />
 
-                {/* Watchlist button */}
-                <img
-                  src={
-                    isInWatchlist(product.id)
-                      ? "eye-fill.png" // Icon for "Remove from Watchlist"
-                      : "eye-empty.png" // Icon for "Add to Watchlist"
-                  }
-                  className="watchlist-icon"
-                  onClick={() => {
-                    addToWatchlist(product); // This will add or remove from the watchlist
-                  }}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
+          {/* Watchlist button */}
+          <img
+            src={isInWatchlist(product.id) ? "eye-fill.png" : "eye-empty.png"} // Icon for "Remove from Watchlist"
+            className="watchlist-icon"
+            onClick={() => {
+              addToWatchlist(product); // This will add or remove from the watchlist
+            }}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
 
-              <div className="product-info mg-inline">
-                <span className="product-name">
-                  <a href={`/product/${product.slug}/${product.id}`}>
-                    {product.name}
-                  </a>
-                </span>
-                <p className="product-description">
-                  <span className="full-price">{product.price}</span>
-                  <span className="discounted-price">
-                    {product.discountedPrice}
-                  </span>
-                </p>
-                <div className="stars">
-                  <RenderStars stars={product.stars} />
-                  <span className="reviews-number">{`(${product.numOfReviews})`}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
+        <div className="product-info mg-inline">
+          <span className="product-name">
+            <a href={`/product/${product.slug}/${product.id}`}>
+              {product.name}
+            </a>
+          </span>
+          <p className="product-description">
+            <span className="full-price">{product.price}$</span>
+            <span className="discounted-price">
+              {product.discountedPrice}
+            </span>
+          </p>
+          <div className="stars">
+            <RenderStars stars={product.stars} />
+            <span className="reviews-number">{`(${product.numOfReviews})`}</span>
+          </div>
+        </div>
+      </div>
+    ))
+  ) : (
+    <p>No products available</p> // Fallback message
+  )}
+</Slider>
+
       </div>
       <a href="/all"><button className="view-all">View all</button></a>
 
@@ -218,7 +217,7 @@ function Carousel() {
                 </a>
               </span>
               <p className="product-description">
-                <span className="full-price">{product.price}</span>
+                <span className="full-price">{product.price}$</span>
                 <span className="discounted-price">
                   {product.discountedPrice}
                 </span>
@@ -235,4 +234,4 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+export default CarouselBestSelling;

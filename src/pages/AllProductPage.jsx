@@ -9,7 +9,6 @@ import { useWatchlist } from "../context/ContextWatchlist";
 
 
  
-  const AllProducts = products
 function AllProductsPage(){
     const { addToCart } = useCart();
     const { addToLike, likeList } = useLike(); 
@@ -36,13 +35,13 @@ const isLiked = (productId) => {
         </div>
         <h1 className="mg-top-1">All items</h1>
         <div className="flex flex-wrap space-between mg-vertical-2">
-        {AllProducts.map((product) => (
+        {products.map((product) => (
             <div className="custom-card" key={product.id}>
               <div className="relative">
                 <img src={product.image} alt={product.name} />
 
                 <button
-                  className="addTo-cart"
+                  className="addTo-cart custom-add-to-cart"
                   onClick={() => {
                     addToCart(product); // Add the product to the cart
                   }}
