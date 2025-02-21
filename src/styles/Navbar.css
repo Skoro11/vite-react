@@ -7,6 +7,51 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+.search-results {
+  position: absolute;
+  width: 100%;
+  top: 101%;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  max-width: 1170px;
+  max-height: 380px;  /* Limit the height of the results */
+  overflow-y: auto;   /* Enable vertical scrolling if content overflows */
+  padding: 10px;      /* Optional: Add padding for spacing */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: Adds a subtle shadow for better visual */
+}
+
+.cart-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
 
 /* Navbar.css */
 .navbar {

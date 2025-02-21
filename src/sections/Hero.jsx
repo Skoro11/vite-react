@@ -1,6 +1,7 @@
 // Hero.js
 import "../styles/Hero.css";
 import arrowIcon from "../assets/icons/arrow-icon.png";
+
 function Hero() {
   return (
     <section className="hero">
@@ -53,6 +54,7 @@ function Hero() {
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

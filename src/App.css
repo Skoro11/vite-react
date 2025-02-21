@@ -7,6 +7,9 @@ button {
 .text-align-center{
   text-align: center;
 }
+.text-align-left{
+  text-align:left;
+}
 .pointer{
   cursor:pointer;
 }
@@ -36,6 +39,10 @@ button {
 }
 .padd-left-5{
   padding-left:5%;
+}
+.padding-vertical-2{
+  padding-top:2%;
+ padding-bottom:2%;
 }
 .padding-right-10{
   padding-right:10%;
@@ -85,7 +92,12 @@ button {
 .width-70{
   width:70%;
 }
-
+.width-10{
+  width:10%;
+}
+.color-green{
+  color:green;
+}
 
 .mg-inline-auto{
   margin-inline:auto;
@@ -131,6 +143,9 @@ button {
 }
 .pd-in-30p{
 padding-inline: 30px;
+}
+.padding-inline-2{
+padding-inline:2%;
 }
 .flex-1{
   flex:1;

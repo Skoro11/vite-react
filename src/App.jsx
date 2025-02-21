@@ -28,7 +28,7 @@ import MobileOptions from "./pages/Options/"
 import AllProductsPage from "./pages/AllProductPage"
 import Test from "./sections/Test"
 import TestCarousel from "./sections/TestCarousel";
-
+import Search from "./components/Search";
 function App() {
   return (
     <Router>
@@ -91,6 +91,7 @@ function App() {
                  
                 }
               />
+              <Route path="/search" element={Search} />
               <Route
                 path="/signup"
                 element={

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useCart } from "../context/ContextCart";
 import { useLike } from "../context/ContextLike";
 import { VscEye } from "react-icons/vsc";
+import { products } from "../components/Products";
 // Importing React Icons
 import {
   FaCog,
@@ -16,16 +17,49 @@ function Navbar() {
   // State to toggle dropdown visibility
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const { getCartItemsCount } = useCart();
+  const [filteredItems, setFilteredItems] = useState([]); // State for filtered items
+  const [showSearchResults, setShowSearchResults] = useState(false); // State to control search result visibility
+  
+  const { getCartItemsCount, addToCart } = useCart();
   const { getLikeItemsCount } = useLike();
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+    // Reset the filtered items if the search term is cleared
+    if (event.target.value === "") {
+      setFilteredItems([]);
+      setShowSearchResults(false); // Hide search results when search bar is empty
+    }
   };
 
-  // Toggle dropdown visibility
+  const handleSearchClick = () => {
+    // If the search term is empty, do nothing
+    if (searchTerm === "") {
+      setShowSearchResults(false);
+      return;
+    }
+
+    setShowSearchResults(true); // Show search results if there is a search term
+
+    // Filter items based on search term
+    const results = products.filter(item =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredItems(results);
+  };
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const showPopup = () => {
+    setPopupVisible(true);
+    setTimeout(() => setPopupVisible(false), 3000);  // Hide popup after 3 seconds
+  };
+
+  const handleAddToCart = (item) => {
+    addToCart(item); // Add the product to the cart
+    showPopup(); // Show the popup
   };
 
   return (
@@ -35,6 +69,59 @@ function Navbar() {
         <span className="underlined">Shop now</span>
       </div>
       <div className="bordered">
+        {showSearchResults && searchTerm !== "" && (
+          <div className="search-results">
+            {filteredItems.length > 0 ? (
+              <ul>
+                <div className="cart-table">
+                  <table className="cart-table">
+                    <thead>
+                      <tr className="cart-product-row">
+                        <th className="">Product</th>
+                        <th className="price-column">Price</th>
+                        <th className="quantity-column">Stock</th>
+                        <th className="">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredItems.length > 0 ? (
+                        filteredItems.map(item => (
+                          <tr key={item.id} className="cart-product-row">
+                            <td className="">
+                              <div className="flex align-center">
+                                <img className="width-10 padding-right-5" src={item.image} alt={item.name} />
+                                <div>{item.name}</div>
+                              </div>
+                            </td>
+                            <td className="price-column">{item.price}$</td>
+                            <td className="quantity-column">
+                              <span className="green">In stock</span>
+                            </td>
+                            <td className="">
+                              <button
+                                className="bg-black"
+                                onClick={() => handleAddToCart(item)} // Add the product to the cart and show popup
+                              >
+                                Add To Cart
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr className="cart-product-row">
+                          <td >No items found</td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </ul>
+            ) : (
+              <p>No items found</p>
+            )}
+          </div>
+        )}
+
         <div className="navbar__logo">
           <h1>
             <a href="/">Lexus</a>
@@ -65,11 +152,17 @@ function Navbar() {
               value={searchTerm}
               onChange={handleSearchChange}
             />
-            <button type="submit" className="search-btn">
+            <button
+              type="button"
+              className="search-btn"
+              onClick={handleSearchClick} // Handle search button click
+            >
               <img src="search-icon.png" alt="Search icon" />
               {/* Search icon */}
             </button>
           </div>
+
+          {/* Display Search Results only when the search button is clicked and search term is not empty */}
           <a href="/like">
             <div className="navbar__heart">
               <img
@@ -105,6 +198,8 @@ function Navbar() {
             {/* User Icon */}
           </div>
         </div>
+
+       
 
         {/* Dropdown Menu */}
         {isDropdownOpen && (

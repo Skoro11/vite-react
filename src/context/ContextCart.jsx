@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { VscChevronUp, VscChevronDown, VscClose } from "react-icons/vsc";
-
+import "./Popup.css"
 // Create Context
 const CartContext = createContext();
 
@@ -8,6 +8,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true); // Loading state for fetch
+  const [showPopup, setShowPopup] = useState(false); // Popup visibility state
 
   // Fetch the cart items from the backend
   const fetchCartItems = async () => {
@@ -56,6 +57,12 @@ export const CartProvider = ({ children }) => {
       product.quantity = 1;
       setCart([...cart, product]);
     }
+
+    // Show the popup when an item is added
+    setShowPopup(true);
+
+    // Hide the popup after 3 seconds
+    setTimeout(() => setShowPopup(false), 6000);
   };
 
   // Remove product from the cart
@@ -124,7 +131,7 @@ export const CartProvider = ({ children }) => {
               <img className="cart-row-image" src={item.image}></img>
               <span className="text">{item.name}</span>
             </td>
-            <td className="table-data">{item.price}</td>
+            <td className="table-data">${item.price}</td>
             <td className="table-data">
               <div className="operation-box">
                 <span className="quantity-box">{item.quantity}</span>
@@ -143,7 +150,7 @@ export const CartProvider = ({ children }) => {
             </td>
 
             <td className="table-data last-element">
-              $
+              $ 
               {
   (
     (typeof item.price === 'string'
@@ -151,7 +158,6 @@ export const CartProvider = ({ children }) => {
       : item.price) * item.quantity
   ).toFixed(2)
 }
-
             </td>
           </tr>
         ))}
@@ -227,6 +233,17 @@ export const CartProvider = ({ children }) => {
       }}
     >
       {children}
+
+      {/* Popup for adding to cart */}
+      {showPopup && (
+  <div className="popup">
+    <div className="popup-content">
+      
+      <img src="checkmark.png" />
+      <p>Item added to the cart!</p>
+    </div>
+  </div>
+)}
     </CartContext.Provider>
   );
 };
@@ -235,4 +252,3 @@ export const CartProvider = ({ children }) => {
 export const useCart = () => {
   return useContext(CartContext);
 };
-

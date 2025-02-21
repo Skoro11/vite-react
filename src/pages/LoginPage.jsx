@@ -9,7 +9,7 @@ function LoginPage(){
         </div>
         <div className="padding-left-5 min-width-30 signup-box ">
 
-           <h1 className="font-32px mg-bottom-5">Log in to Exclusive</h1>
+           <h1 className="font-32px mg-bottom-5">Log in to Lexus</h1>
             <h5 className="mg-bottom-5">Enter your details below</h5>
 
         <input type="email" className="input-signup mg-bottom-5" placeholder="Email or Phone Number"></input>
