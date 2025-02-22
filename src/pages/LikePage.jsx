@@ -60,7 +60,7 @@ const LikePage = () => {
               <div>
                 <span className="product-name-likelist">{product.name}</span>
                 <p className="product-description-likelist">
-                  <span className="full-price">{product.price}</span>
+                  <span className="full-price">{product.price}$</span>
                   <span className="discounted-price">
                     {product.discountedPrice}
                   </span>

@@ -63,7 +63,7 @@ const WatchlistPage = () => {
 
               <span className="product-name-watchlist">{product.name}</span>
               <p className="product-description-watchlist">
-                <span className="full-price">{product.price}</span>
+                <span className="full-price">{product.price}$</span>
                 <span className="discounted-price">
                   {product.discountedPrice}
                 </span>

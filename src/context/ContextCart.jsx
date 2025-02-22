@@ -71,6 +71,33 @@ export const CartProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
+  const moveAllToCart = (likeList, addToCart, addToLike) => {
+    let updatedCart = [...cart];
+
+    // Add all items from likeList to the cart and remove them from the likeList
+    likeList.forEach((product) => {
+      // Check if product is already in the cart
+      const existingProduct = updatedCart.find(
+        (item) => item.id === product.id
+      );
+
+      if (existingProduct) {
+        // If product already exists in cart, increase its quantity
+        existingProduct.quantity += 1;
+      } else {
+        // If it's a new product, add it with quantity 1
+        product.quantity = 1;
+        updatedCart.push(product);
+      }
+
+      // Remove the product from the like list
+      addToLike(product); // This will now be done for every product
+    });
+
+    // Update the cart state with the new items
+    setCart(updatedCart);
+  };
+
   // Update quantity of a product in the cart
   const updateQuantity = (productId, action) => {
     const updatedCart = cart.map((item) => {
@@ -229,6 +256,7 @@ export const CartProvider = ({ children }) => {
         calculateTotal,
         showCartItems,
         ShowCartItemsMobile,
+        moveAllToCart,
         loading, // Pass loading state to the consumers
       }}
     >
