@@ -20,7 +20,7 @@ function ProductUrl() {
         (product) => product.slug === slug && product.id === parseInt(id, 10)
       );
       setProduct(fetchedProduct);
-    }, 3000); // 3-second delay before setting product
+    }, 1000); // 3-second delay before setting product
 
     return () => clearTimeout(timer); // Cleanup timeout on unmount
   }, [slug, id]);
