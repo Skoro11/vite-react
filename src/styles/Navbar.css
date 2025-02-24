@@ -10,14 +10,15 @@ body {
 .search-results {
   position: absolute;
   width: 100%;
-  top: 101%;
+  top: 100%;
   background-color: white;
   color: rgb(0, 0, 0);
   max-width: 1170px;
   max-height: 380px;  /* Limit the height of the results */
   overflow-y: auto;   /* Enable vertical scrolling if content overflows */
   padding: 10px;      /* Optional: Add padding for spacing */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: Adds a subtle shadow for better visual */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  border-top:1px solid #02020226; /* Optional: Adds a subtle shadow for better visual */
 }
 
 .cart-popup {

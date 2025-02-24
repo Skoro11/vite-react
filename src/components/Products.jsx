@@ -17,7 +17,7 @@ const fetchAndFilterProducts = async () => {
       stars: product.stars,
       name: product.name,
       price: product.price,
-      numOfReviews: product.numOfReviews,
+      numOfReviews: product.numOfReviews === null ? "" : product.numOfReviews, // Check if null
       tag: product.tag,
       discountedPrice: product.discountedPrice,
       description: product.description,
