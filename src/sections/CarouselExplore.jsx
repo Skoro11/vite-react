@@ -17,6 +17,7 @@ function CarouselExplore() {
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike();
   const { addToWatchlist, watchlist } = useWatchlist();
+  const [key, setKey] = useState(0); // State to force re-render
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,6 +38,14 @@ function CarouselExplore() {
         observer.unobserve(componentRef.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setKey((prevKey) => prevKey + 1); // Update key every 3 seconds
+    }, 500);
+
+    return () => clearInterval(interval);
   }, []);
 
   if (!isVisible) return <div ref={componentRef} style={{ minHeight: "300px" }}></div>;
@@ -63,7 +72,7 @@ function CarouselExplore() {
   const isInWatchlist = (id) => watchlist.some((item) => item.id === id);
 
   return (
-    <div ref={componentRef} className="mg-top-50-sides-30-bottom-0">
+    <div ref={componentRef} className="mg-top-50-sides-30-bottom-0" key={key}>
       <div className="width-1170 mg-inline">
         <div className="heading-description">
           <span className="orange orange-span"></span>

@@ -13,33 +13,20 @@ import { useWatchlist } from "../context/ContextWatchlist";
 function CarouselBestSelling() {
   const sliderRef = useRef(null);
   const componentRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike();
   const { addToWatchlist, watchlist } = useWatchlist();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 } // Adjust threshold as needed
-    );
+    const timer = setTimeout(() => {
+      setShouldRender(true);
+    }, 500);
 
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
-    }
-
-    return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
-      }
-    };
+    return () => clearTimeout(timer); // Cleanup function to avoid memory leaks
   }, []);
 
-  if (!isVisible) return <div ref={componentRef} style={{ minHeight: "300px" }}></div>;
+  if (!shouldRender) return <div ref={componentRef} style={{ minHeight: "300px" }}></div>;
 
   const settings = {
     dots: false,
