@@ -26,7 +26,7 @@ function ProductUrl() {
   }, [slug, id]);
 
   if (!product) {
-    return <div>Loading...</div>; // Show loading while waiting
+    return <div className="product-container">Loading...</div>; // Show loading while waiting
   }
 
   return (
@@ -50,7 +50,7 @@ function ProductUrl() {
             alt="like"
           />
         </div>
-        <div className="stars-stock">
+        <div className="stars-stock flex align-center">
           {[...Array(5)].map((_, index) => (
             <img
               key={index}
@@ -58,9 +58,9 @@ function ProductUrl() {
               alt="star"
             />
           ))}
-          ({product.numOfReviews} Reviews) | <span className="green">In Stock</span>
+          ({product.numOfReviews}) | <span className="green padding-left-5">In Stock</span>
         </div>
-        <div className="price-product-description">{product.price}</div>
+        <div className="price-product-description">{product.price}$</div>
         <div className="product-description-product">{product.description}</div>
 
         <div className="flex-container">

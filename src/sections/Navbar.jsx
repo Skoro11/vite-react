@@ -52,11 +52,7 @@ function Navbar() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const showPopup = () => {
-    setPopupVisible(true);
-    setTimeout(() => setPopupVisible(false), 3000);  // Hide popup after 3 seconds
-  };
-
+  
   const handleAddToCart = (item) => {
     addToCart(item); // Add the product to the cart
     showPopup(); // Show the popup
@@ -90,7 +86,7 @@ function Navbar() {
                             <td className="">
                               <div className="flex align-center">
                                 <img className="width-10 padding-right-5" src={item.image} alt={item.name} />
-                                <div>{item.name}</div>
+                                <div><a href={`/product/${item.slug}/${item.id}`}>{item.name}</a></div>
                               </div>
                             </td>
                             <td className="price-column">{item.price}$</td>

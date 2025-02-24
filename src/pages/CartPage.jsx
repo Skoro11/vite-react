@@ -59,7 +59,7 @@ const CartPage = () => {
             </div>
             <div className="flex underline total-item">
               <span>Total:</span>
-              <span>{calculateTotal()}</span>
+              <span>${calculateTotal()}</span>
             </div>
             <button className="checkout-btn">Proceed to Checkout</button>
           </div>

@@ -71,7 +71,7 @@ function AllProductsPage() {
                   </a>
                 </span>
                 <p className="product-description">
-                  <span className="full-price">{product.price}</span>
+                  <span className="full-price">{product.price}$</span>
                   <span className="discounted-price">{product.discountedPrice}</span>
                 </p>
                 <div className="stars">
