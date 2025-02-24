@@ -17,7 +17,7 @@ function AllProductsPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldRender(true);
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timer); // Cleanup timeout on unmount
   }, []);
