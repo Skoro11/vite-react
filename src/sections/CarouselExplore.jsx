@@ -23,7 +23,7 @@ function CarouselExplore() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldRender(true);
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timer); // Cleanup function to avoid memory leaks
   }, []);
