@@ -10,20 +10,23 @@ function ProductUrl() {
   const [product, setProduct] = useState(null); // State to hold the product data
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike();
+
   // Function to check if a product is already liked
-  const isLiked = (productId) => {
-    return likeList.some((item) => item.id === productId);
-  };
+  const isLiked = (productId) => likeList.some((item) => item.id === productId);
+
   useEffect(() => {
-    // Find the product based on the slug and id
-    const fetchedProduct = products.find(
-      (product) => product.slug === slug && product.id === parseInt(id)
-    );
-    setProduct(fetchedProduct);
-  }, [slug, id]); // Re-run when slug or id changes
+    const timer = setTimeout(() => {
+      const fetchedProduct = products.find(
+        (product) => product.slug === slug && product.id === parseInt(id, 10)
+      );
+      setProduct(fetchedProduct);
+    }, 500); // 3-second delay before setting product
+
+    return () => clearTimeout(timer); // Cleanup timeout on unmount
+  }, [slug, id]);
 
   if (!product) {
-    return <div>Loading...</div>; // Show loading while fetching product
+    return <div>Loading...</div>; // Show loading while waiting
   }
 
   return (
@@ -32,7 +35,6 @@ function ProductUrl() {
         <img src={product.image} alt={product.name} />
         <img src={product.image} alt={product.name} />
         <img src={product.image} alt={product.name} />
-        {/* You can add more product images here if available */}
       </div>
       <div className="main-image">
         <img src={product.image} alt={product.name} />
@@ -42,15 +44,13 @@ function ProductUrl() {
         <div className="product-name-product">
           <h2>{product.name}</h2>
           <img
-            src={isLiked(product.id) ? "heart-fill.png" : "heart-empty.png"} // Replace with your icon paths
-            onClick={() => {
-              addToLike(product); // This will add or remove from the like list
-            }}
-            style={{ cursor: "pointer" }} // Add pointer cursor to indicate it's clickable
+            src={isLiked(product.id) ? "heart-fill.png" : "heart-empty.png"}
+            onClick={() => addToLike(product)}
+            style={{ cursor: "pointer" }}
+            alt="like"
           />
         </div>
         <div className="stars-stock">
-          {/* Assuming product.stars is an array or number */}
           {[...Array(5)].map((_, index) => (
             <img
               key={index}
@@ -58,19 +58,13 @@ function ProductUrl() {
               alt="star"
             />
           ))}
-          ({product.numOfReviews} Reviews) |{" "}
-          <span className="green">In Stock</span>
+          ({product.numOfReviews} Reviews) | <span className="green">In Stock</span>
         </div>
         <div className="price-product-description">{product.price}</div>
         <div className="product-description-product">{product.description}</div>
 
         <div className="flex-container">
-          <button
-            className="buy-btn mb-10"
-            onClick={() => {
-              addToCart(product); // Add the product to the cart
-            }}
-          >
+          <button className="buy-btn mb-10" onClick={() => addToCart(product)}>
             Add to Cart
           </button>
         </div>

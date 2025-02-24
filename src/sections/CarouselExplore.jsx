@@ -13,42 +13,22 @@ import { useWatchlist } from "../context/ContextWatchlist";
 function CarouselExplore() {
   const sliderRef = useRef(null);
   const componentRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike();
   const { addToWatchlist, watchlist } = useWatchlist();
-  const [key, setKey] = useState(0); // State to force re-render
+  
 
+  
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 } // Adjust threshold as needed
-    );
-
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
-    }
-
-    return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setKey((prevKey) => prevKey + 1); // Update key every 3 seconds
+    const timer = setTimeout(() => {
+      setShouldRender(true);
     }, 500);
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer); // Cleanup function to avoid memory leaks
   }, []);
 
-  if (!isVisible) return <div ref={componentRef} style={{ minHeight: "300px" }}></div>;
+  if (!shouldRender) return <div ref={componentRef} style={{ minHeight: "300px" }}></div>;
 
   const settings = {
     dots: false,
@@ -72,7 +52,7 @@ function CarouselExplore() {
   const isInWatchlist = (id) => watchlist.some((item) => item.id === id);
 
   return (
-    <div ref={componentRef} className="mg-top-50-sides-30-bottom-0" key={key}>
+    <div ref={componentRef} className="mg-top-50-sides-30-bottom-0">
       <div className="width-1170 mg-inline">
         <div className="heading-description">
           <span className="orange orange-span"></span>
