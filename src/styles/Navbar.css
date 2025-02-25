@@ -20,7 +20,11 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   border-top:1px solid #02020226; /* Optional: Adds a subtle shadow for better visual */
 }
+.user-active{
+  background-color:#DB4444;
+  border-radius: 20px;
 
+}
 .cart-popup {
   position: fixed;
   top: 20px;

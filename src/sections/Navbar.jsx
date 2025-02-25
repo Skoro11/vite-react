@@ -1,19 +1,16 @@
 import "../styles/Navbar.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useCart } from "../context/ContextCart";
 import { useLike } from "../context/ContextLike";
-import { VscEye } from "react-icons/vsc";
 import { products } from "../components/Products";
+import { useLocation } from "react-router-dom";
 // Importing React Icons
 import {
-  FaCog,
-  FaListAlt,
-  FaRegWindowClose,
-  FaStar,
   FaSignOutAlt,
 } from "react-icons/fa";
 
 function Navbar() {
+
   // State to toggle dropdown visibility
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,6 +19,58 @@ function Navbar() {
   
   const { getCartItemsCount, addToCart } = useCart();
   const { getLikeItemsCount } = useLike();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [logoutMessage, setLogoutMessage] = useState("");
+  const [notification, setNotification] = useState(""); // Store notification message
+  const [notificationType, setNotificationType] = useState(""); 
+  useEffect(() => {
+    // Check if user is logged in based on the localStorage
+    const loggedInStatus = localStorage.getItem("loggedIn");
+    setIsLoggedIn(loggedInStatus === "true"); // Set state based on the loggedIn value
+  }, []);
+
+  // Store notification type (success/error)
+
+  useEffect(() => {
+    // Check if there's a notification in sessionStorage
+    const message = sessionStorage.getItem("notification");
+    const type = sessionStorage.getItem("notificationType");
+
+    if (message) {
+      setNotification(message);
+      setNotificationType(type);
+
+      // Remove notification from sessionStorage after showing it
+      sessionStorage.removeItem("notification");
+      sessionStorage.removeItem("notificationType");
+    }
+  }, []);
+  useEffect(() => {
+    // Check if there is a logout message stored in sessionStorage
+    const message = sessionStorage.getItem("logoutMessage");
+    if (message) {
+      setLogoutMessage(message);
+      // Optionally, remove the message after 5 seconds
+      setTimeout(() => {
+        setLogoutMessage("");
+        sessionStorage.removeItem("logoutMessage");
+      }, 6000);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    // Remove the 'loggedIn' flag from localStorage
+    localStorage.removeItem("loggedIn");
+    
+    // Store the logout message in sessionStorage to display it after reload
+    sessionStorage.setItem("logoutMessage", "You have logged out!");
+
+    // Optionally, reload the page after a delay to simulate a logout effect
+    
+      window.location.reload();
+     // Wait 2 seconds before reload
+  };
+
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -59,7 +108,26 @@ function Navbar() {
   };
 
   return (
+    
     <div className="navbar">
+      {logoutMessage && (
+        <div className="popup">
+        <div className="popup-content">
+          {logoutMessage}
+        </div>
+        </div>
+        
+      )}
+       {/* Notification Container */}
+       {notification && (
+        <div className={`popup ${notificationType}`}>
+          <img 
+            src= "checkmark.png" 
+            alt="Notification Icon" 
+          />
+          {notification}
+        </div>
+      )}
       <div className="sale">
         Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
         <span className="underlined">Shop now</span>
@@ -135,7 +203,7 @@ function Navbar() {
             <a href="/about">About</a>
           </li>
           <li>
-            <a href="/signup">Sign up</a>
+            <a href="/login">Sign in</a>
           </li>
         </ul>
 
@@ -189,10 +257,19 @@ function Navbar() {
             </div>
           </a>
 
-          <div className="navbar__user-icon" onClick={toggleDropdown}>
-            <img src="user-icon.png" alt="User Icon" className="navbar__icon" />{" "}
-            {/* User Icon */}
-          </div>
+          <div
+  className={`navbar__user-icon `}
+  onClick={toggleDropdown}
+>
+<img
+  src={isLoggedIn ? "user-active.png" : "user-icon.png"}
+  alt="User Icon"
+  className={isLoggedIn ? "user-active" : "navbar__icon"} 
+/>
+
+
+</div>
+
         </div>
 
        
@@ -203,12 +280,16 @@ function Navbar() {
             <ul>
               
               
-              <li>
-                <FaSignOutAlt /> Login
-              </li>
-              <li>
-                <FaSignOutAlt /> Logout
-              </li>
+            {!isLoggedIn ? (
+         <a className="color-white" href="/login"><li style={{ cursor: "pointer" }}>
+         <FaSignOutAlt /> Login
+       </li></a>
+         
+        ) : (
+          <li onClick={handleLogout} style={{ cursor: "pointer" }}>
+            <FaSignOutAlt /> Logout
+          </li>
+        )}
             </ul>
           </div>
         )}

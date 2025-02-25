@@ -267,7 +267,7 @@ export const CartProvider = ({ children }) => {
   <div className="popup">
     <div className="popup-content">
       
-      <img src="checkmark.png" />
+      <img alt ="Checkmark" src="checkmark.png" />
       <p>Item added to the cart!</p>
     </div>
   </div>
