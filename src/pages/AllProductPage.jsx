@@ -27,7 +27,7 @@ function AllProductsPage() {
     watchlist.some((item) => item.id === productId);
 
   return (
-    <section className="width-1170 mg-inline mg-top-5">
+    <section className="width-1170 mg-inline mg-top-3rem">
       <div className="heading-description">
         <span className="orange orange-span"></span>
         <div className="orange orange-text">All Items</div>

@@ -201,24 +201,10 @@ function Navbar() {
         {isDropdownOpen && (
           <div className="navbar__dropdown">
             <ul>
+              
+              
               <li>
-                <a className="eye-watch" href="/watchlist">
-                  {" "}
-                  <VscEye />
-                  Watchlist
-                </a>
-              </li>
-              <li>
-                <FaCog /> Manage my account
-              </li>
-              <li>
-                <FaListAlt /> My Orders
-              </li>
-              <li>
-                <FaRegWindowClose /> My Cancellations
-              </li>
-              <li>
-                <FaStar /> My Reviews
+                <FaSignOutAlt /> Login
               </li>
               <li>
                 <FaSignOutAlt /> Logout

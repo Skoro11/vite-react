@@ -2,15 +2,18 @@ import "../styles/NewArrival.css";
 function NewArrival() {
   return (
     <section>
-      <div className="carousel-wrapper">
+      <div className="carousel-wrapper ">
         <div className="heading-description">
           <span className="orange orange-span"></span>
           <div className="orange orange-text">Featured</div>
         </div>
-        <div className="heading-clock">
+        
+        <div className="padding-top-bottom-10">
           {" "}
           <h1>New Arrival</h1>
         </div>
+        
+        
 
         <div className="grid-container">
           <div className="item1">
@@ -21,7 +24,8 @@ function NewArrival() {
                 Black and White version of the PS5 coming out on sale.
               </li>
               <li>
-                <button className="arrival-btn">Shop Now</button>
+              <a className="color-white" href="/all"><button className="arrival-btn">Shop Now</button></a>
+
               </li>
             </ul>
           </div>
@@ -33,7 +37,7 @@ function NewArrival() {
                 Featured woman collections that give you another vibe.
               </li>
               <li>
-                <button className="arrival-btn">Shop Now</button>
+              <a className="color-white" href="/all"><button className="arrival-btn">Shop Now</button></a>
               </li>
             </ul>
           </div>
@@ -43,7 +47,7 @@ function NewArrival() {
               <li className="arrival-heading">Speakers</li>
               <li className="arrival-description">Amazon wireless speakers</li>
               <li>
-                <button className="arrival-btn">Shop Now</button>
+              <a className="color-white" href="/all"><button className="arrival-btn">Shop Now</button></a>
               </li>
             </ul>
           </div>
@@ -53,7 +57,7 @@ function NewArrival() {
               <li className="arrival-heading">Perfume</li>
               <li className="arrival-description">GUCCI INTENSE OUD EDP</li>
               <li>
-                <button className="arrival-btn">Shop Now</button>
+              <a className="color-white" href="/all"><button className="arrival-btn">Shop Now</button></a>
               </li>
             </ul>
           </div>

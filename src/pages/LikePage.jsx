@@ -21,7 +21,7 @@ const LikePage = () => {
   };
 
   return (
-    <div className="carousel-wrapper">
+    <div className="width-1170 mg-inline pd-in-30p pd-in-15-mb">
       <div className="like-header">
         <span className="liked-items">Liked items({getLikeItemsCount()})</span>
         {/* Button to move all items to the cart */}

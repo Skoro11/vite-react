@@ -22,7 +22,7 @@ const WatchlistPage = () => {
   };
 
   return (
-    <div className="carousel-wrapper">
+    <div className="width-1170 mg-inline pd-in-30p pd-in-15-mb">
       <div className="watchlist-header">
         <span className="watchlist-items">
           Watchlist ({getWatchlistItemsCount()})

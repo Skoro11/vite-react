@@ -29,6 +29,7 @@ import AllProductsPage from "./pages/AllProductPage"
 import Test from "./sections/Test"
 import TestCarousel from "./sections/TestCarousel";
 import Search from "./components/Search";
+import MayLikeSection from "./sections/MayLike"
 function App() {
   return (
     <Router>
@@ -65,7 +66,16 @@ function App() {
                   </>
                 }
               />
-              <Route path="/product/:slug/:id" element={<ProductUrl />} />
+              <Route path="/product/:slug/:id" element={
+                <>
+                
+                <ProductUrl />
+                <MayLikeSection />
+                </>
+                
+                
+                
+                } />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={
                 <><AboutPage />
@@ -124,18 +134,7 @@ function App() {
                  
                 }
               />
-              <Route
-                path="/test"
-                element={
-                  <>
-                  
-                  <TestCarousel />
-                    <Test />
-                  </>
-                  
-                 
-                }
-              />
+              
 
               <Route path="*" element={<NotFound />} />
             </Routes>

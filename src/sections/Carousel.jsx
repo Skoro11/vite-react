@@ -17,10 +17,7 @@ function Carousel() {
   const { addToCart } = useCart();
   const { addToLike, likeList } = useLike(); // Get `likeList` from the context to check if item is already liked
   const { addToWatchlist, watchlist } = useWatchlist(); // Get `watchlist` from the context to check if item is already in the watchlist
-  /* const flashSaleProducts = products.filter(
-    (product) => product.specialCategory === "Flash Sales"
-  ); */
-
+ 
   const settings = {
     dots: false,
     infinite: true,
@@ -205,7 +202,7 @@ function Carousel() {
       </div>
       <a href="/all"><button className="view-all">View all</button></a>
 
-      <div className="item-list">
+      <div  className="item-list">
         {flashSaleProducts.map((product) => (
           <div key={product.id}>
             <div className="relative">

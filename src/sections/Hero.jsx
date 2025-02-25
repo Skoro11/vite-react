@@ -49,7 +49,7 @@ function Hero() {
             Up to 10% <br></br>off Voucher
           </div>
           <div className="hero__shop-now">
-            Shop Now 
+            <a className="color-white" href="/all">Shop Now </a>
             <img src={arrowIcon} alt="Arrow" className="arrow__icon" />
           </div>
         </div>
