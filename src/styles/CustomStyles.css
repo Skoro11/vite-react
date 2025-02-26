@@ -91,7 +91,9 @@
  .right-contact-container{
      width:55%;
  }
- 
+ .send-message-btn{
+    float:right;
+ }
  
  .send-message-container{
      margin: 3% 0;
