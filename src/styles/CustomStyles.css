@@ -2,9 +2,23 @@
   .custom-card{
     width:23%;
 }
+
 .custom-add-to-cart{
+    position: absolute;
+    font-size: 16px;
     width:100%;
-    left: 0;
+    bottom: 0%;
+    padding: 5% 0;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    opacity: 0;
+    transition: opacity .5s ease, background-color .3s ease;
+    cursor: pointer;
+}
+.relative:hover .custom-add-to-cart{
+    opacity:1;
+
 }
 
 /* About page */

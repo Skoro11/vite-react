@@ -41,7 +41,7 @@ function AllProductsPage() {
                 <img src={product.image} alt={product.name} />
 
                 <button
-                  className="addTo-cart custom-add-to-cart"
+                  className=" custom-add-to-cart"
                   onClick={() => addToCart(product)}
                 >
                   Add To Cart
