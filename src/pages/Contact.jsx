@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Contact.css"; // Ensure your CSS file is included
+
 import axios from "axios";
 
 function ContactPage() {
@@ -45,12 +45,12 @@ function ContactPage() {
     };
 
     return (
-        <section className="mg-inline contact-page pd-in-30p pd-in-15-mb">
+        <section className="mx-width-1170px mg-inline pd-in-30p pd-in-15-mb">
             <div className="links-home display-none-sm">
                 <a className="home-link" href="/">Home</a> / Contact
             </div>
 
-            <div className="contact-container flex mg-bottom-100 direction-column-767 mg-top-10-sm">
+            <div className="space-between flex mg-bottom-100 direction-column-767 mg-top-10-sm">
                 <div className="left-contact-container no-display-320-767">
                     <ul className="flex space-between direction-column height-100">
                         <li className="flex align-center bold">
@@ -75,7 +75,7 @@ function ContactPage() {
                         <div className="flex gap-3">
                             <input
                                 type="text"
-                                className="input-contact-page"
+                                className="bg-input-secondary width-30"
                                 placeholder="Your Name*"
                                 name="name"
                                 value={formData.name}
@@ -85,7 +85,7 @@ function ContactPage() {
                             
                             <input
                                 type="email"
-                                className="input-contact-page"
+                                className="bg-input-secondary width-30"
                                 placeholder="Your Email*"
                                 name="email"
                                 value={formData.email}
@@ -95,7 +95,7 @@ function ContactPage() {
                             
                             <input
                                 type="text"
-                                className="input-contact-page"
+                                className="bg-input-secondary width-30"
                                 placeholder="Your Phone*"
                                 name="phone"
                                 value={formData.phone}
@@ -106,7 +106,7 @@ function ContactPage() {
 
                         <div className="send-message-container">
                             <textarea
-                                className="input-contact-page send-message-textarea"
+                                className="bg-input-secondary send-message-textarea"
                                 placeholder="Your Message"
                                 name="message"
                                 value={formData.message}
@@ -121,16 +121,16 @@ function ContactPage() {
             </div>
 
             {successMessageVisible && (
-                <div className="success-message">
+                <div className="popup">
                     <div className="popup-content">
-                        Message sent successfully!
+                    <img src="checkmark.png" alt="Error"/>Message sent successfully!
                     </div>
                 </div>
             )}
             {failMessageVisible && (
-                <div className="fail-message">
+                <div className="popup">
                     <div className="popup-content">
-                        Error occurred while sending a message!
+                       <img src="error.png" alt="Error"/>Error occurred while sending a message!
                     </div>
                 </div>
             )}

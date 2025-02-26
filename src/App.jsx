@@ -1,5 +1,7 @@
 import Navbar from "./sections/Navbar";
 import "./App.css";
+import "./styles/Components.css"
+import "./styles/CustomStyles.css"
 import HeroSection from "./sections/Hero";
 import Carousel from "./sections/Carousel";
 import { CartProvider } from "./context/ContextCart";
@@ -18,7 +20,6 @@ import CarouselExplore from "./sections/CarouselExplore";
 import Banner from "./sections/Banner";
 import NewArrival from "./sections/NewArrival";
 import NotFound from "./pages/NotFound";
-import AdminPanel from "./admin/AdminPanel";
 import ContactPage from "./pages/Contact"
 import AboutPage from "./pages/About";
 import Services from "./sections/Services";
@@ -26,8 +27,6 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import MobileOptions from "./pages/Options/"
 import AllProductsPage from "./pages/AllProductPage"
-import Test from "./sections/Test"
-import TestCarousel from "./sections/TestCarousel";
 import Search from "./components/Search";
 import MayLikeSection from "./sections/MayLike"
 function App() {

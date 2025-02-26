@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { VscChevronUp, VscChevronDown, VscClose } from "react-icons/vsc";
-import "./Popup.css"
+
 // Create Context
 const CartContext = createContext();
 

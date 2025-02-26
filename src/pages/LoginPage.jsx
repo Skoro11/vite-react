@@ -1,27 +1,26 @@
 import  { useState, useEffect } from "react";
 
 function LoginPage() {
-    const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const [notification, setNotification] = useState(""); // Store notification text
   const [notificationType, setNotificationType] = useState(""); // Store notification type (success/error)
-
+  
   const hardcodedEmail = import.meta.env.VITE_USER_USERNAME;
   const hardcodedPassword = import.meta.env.VITE_USER_PASSWORD;
-
+  
   useEffect(() => {
     // Check if the user is already logged in
     const loggedIn = localStorage.getItem("loggedIn");
     if (loggedIn === "true") {
       // If already logged in, show notification
-      
       setNotificationType("success");
       // Redirect to home page
       window.location.replace("/");
     }
   }, []);
-
+  
   const handleLogin = () => {
     if (email === hardcodedEmail && password === hardcodedPassword) {
       // Successful login, set notification in sessionStorage
@@ -32,31 +31,47 @@ function LoginPage() {
       // Redirect after a short delay to show the popup
       setTimeout(() => {
         window.location.replace("/"); // Redirect to main page
-      }, 2000); // Delay redirect for 2 seconds to let the popup show
+      }, 1000); // Delay redirect for 2 seconds to let the popup show
     } else {
-      // Invalid credentials, set error notification in sessionStorage
-      sessionStorage.setItem("notification", "Invalid credentials");
-      sessionStorage.setItem("notificationType", "error");
+      // Check if the email matches but password is wrong
+      if (email === hardcodedEmail && password !== hardcodedPassword) {
+        setNotification("Incorrect password. Please try again.");
+        setNotificationType("warning");
+      } else {
+        // Invalid credentials (wrong email or both wrong email & password)
+        setNotification("Invalid credentials. User not found.");
+        setNotificationType("error");
+      }
+  
+      // Clear input fields and reset notification after 3 seconds
+      setTimeout(() => {
+        setEmail("");
+        setPassword("");
+        setNotification("");
+        setNotificationType("");
+      }, 6000);
     }
   };
+
+
   return (
     <div>
         {/* Display notification popup */}
-      {notification && (
-        <div className={`popup`}>
-            <div className="popup">
-            <img 
+        {notification && (
+      <div className={`popup ${notificationType}`}>
+        <div className="popup-content">
+          <img 
             src={notificationType === "success" ? "checkmark.png" : "error.png"} 
             alt="Notification Icon" 
           />
-            </div>
-          
-          {notification}
+          <p>{notification}</p>
         </div>
-      )}
+      </div>
+    )}
+      
     
       {/* Your existing layout here */}
-      <section className="mg-inline contact-page pd-in-30p pd-in-15-mb mg-bottom-5">
+      <section className="mx-width-1170px mg-inline contact-page pd-in-30p pd-in-15-mb mg-bottom-5">
         <div className="links-home display-none-sm">
           <a className="home-link" href="/">Home</a> / Login
         </div>

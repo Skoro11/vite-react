@@ -1,6 +1,8 @@
-button {
-  cursor: pointer;
+
+.bg-btn-primary{
+  background-color: #db4444;
 }
+
 .color-red{
   color:red;
 }
@@ -24,6 +26,9 @@ button {
 }
 .color-white{
   color:white;
+}
+.bg-input-secondary{
+  background-color:#F5F5F5;
 }
 .bold{
   font-weight: bold;
@@ -67,6 +72,9 @@ padding:10px 0;
 }
 .mg-vertical-2{
   margin: 2% 0;
+}
+.mg-vertical-10{
+  margin:10% 0;
 }
 .mg-top-3rem{
   margin-top:3rem;

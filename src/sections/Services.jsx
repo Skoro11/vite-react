@@ -20,7 +20,7 @@ function Services (){
             <img src="check.png" />
             <div className="services-heading">MONEY BACK GUARANTEE</div>
             <div className="services-description">
-              We reurn money within 30 days
+              We return money within 30 days
             </div>
           </div>
         </div>

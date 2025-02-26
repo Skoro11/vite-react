@@ -1,8 +1,7 @@
-import "./About.css"
 
 function AboutPage(){
     return(
-        <section className="mg-inline contact-page pd-in-30p pd-in-15-mb mg-top-10-sm">
+        <section className="mx-width-1170px mg-inline contact-page pd-in-30p pd-in-15-mb mg-top-10-sm">
             <div className="links-home display-none-sm"><a className="home-link" href="/">Home</a> / About</div>
             <div className="flex align-center mg-bottom-10 our-story-container">
                <div className="width-50 width-100-sm ">

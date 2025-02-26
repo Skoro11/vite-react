@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./AllProductPage.css";
+
 import { products } from "../components/Products";
 import RenderStars from "../components/RenderStars";
 import GetTag from "../components/Tags";

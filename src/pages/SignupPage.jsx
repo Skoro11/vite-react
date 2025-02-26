@@ -1,4 +1,4 @@
-import "./SignupPage.css";
+
 import { useState } from "react";
 
 function SignupPage() {
@@ -26,7 +26,7 @@ function SignupPage() {
   };
 
   return (
-    <section className="mg-inline contact-page pd-in-30p pd-in-15-mb mg-bottom-5">
+    <section className="mx-width-1170px mg-inline contact-page pd-in-30p pd-in-15-mb mg-bottom-5">
       <div className="links-home display-none-sm">
         <a className="home-link" href="/">Home</a> / Sign Up
       </div>
