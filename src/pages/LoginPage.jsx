@@ -22,6 +22,10 @@ function LoginPage() {
   }, []);
   
   const handleLogin = () => {
+    // Clear previous notification before checking credentials
+    setNotification("");
+    setNotificationType("");
+  
     if (email === hardcodedEmail && password === hardcodedPassword) {
       // Successful login, set notification in sessionStorage
       localStorage.setItem("loggedIn", "true");
@@ -31,7 +35,7 @@ function LoginPage() {
       // Redirect after a short delay to show the popup
       setTimeout(() => {
         window.location.replace("/"); // Redirect to main page
-      }, 1000); // Delay redirect for 2 seconds to let the popup show
+      }, 500); // Delay redirect for 2 seconds to let the popup show
     } else {
       // Check if the email matches but password is wrong
       if (email === hardcodedEmail && password !== hardcodedPassword) {
@@ -49,7 +53,12 @@ function LoginPage() {
         setPassword("");
         setNotification("");
         setNotificationType("");
-      }, 6000);
+      }, 5000);
+  
+      // Refresh the page after 6 seconds
+      setTimeout(() => {
+        window.location.reload(); // Refresh the page after 6 seconds
+      }, 5000);
     }
   };
 
