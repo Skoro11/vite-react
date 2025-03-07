@@ -2,7 +2,7 @@ export const products = [
   {
     id: 1,
     slug: "breed-dry-dog-food",
-    image: "Products/dogFood.png",
+    image: "https://res.cloudinary.com/dvsuhy8uh/image/upload/v1741347629/dogFood_ksds31.png",
     stars: 5,
     name: "Breed Dry Dog Food",
     price: "$100",
