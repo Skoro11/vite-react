@@ -9,7 +9,7 @@ let ExploreProducts = [];
 // Function to fetch and filter products
 const fetchAndFilterProducts = async () => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}`);
     products = response.data.map(product => ({
       id: product._id,
       slug: product.slug,
